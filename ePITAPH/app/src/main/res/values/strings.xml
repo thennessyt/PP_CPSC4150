@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ePITAPH</string>
+    <!--   OPENING MENU STRINGS     -->
+    <string name="creatememorial">Create Memorial</string>
+    <string name="visitmemorial">Visit Memorial</string>
+
+    <!--   VISIT MENU STRINGS     -->
+    <string name="savedmemorials">Saved Memorials</string>
+    <string name="memorialcode">Enter Memorial Code</string>
+    <string name="localmemorials">Browse Local Memorials</string>
 </resources>

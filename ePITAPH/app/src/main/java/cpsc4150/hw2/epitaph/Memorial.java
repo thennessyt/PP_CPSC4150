@@ -4,13 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import android.location.Location;
+
+import java.util.Vector;
 
 @Entity
 public class Memorial
 {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    private int id;
+    protected int id;
 
     @NonNull
     @ColumnInfo(name = "name")
@@ -40,8 +43,8 @@ public class Memorial
     @ColumnInfo(name = "contribution_settings")
     private String contributionSettings;
 
-//    @NonNull
-//    @ColumnInfo(name = "locations")
-//    private vector<Location> locations;
-//    TODO: FIGURE OUT WHAT TO DO WITH LOCATIONS
+    @NonNull
+    @ColumnInfo(name = "locations")
+    private Vector<Location> locations;
+    //uses the Android location library so hopefully there won't be conversion issues
 }
