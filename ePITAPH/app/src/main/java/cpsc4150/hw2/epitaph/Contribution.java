@@ -10,13 +10,18 @@ import static androidx.room.ForeignKey.CASCADE;
 
 import java.time.LocalDateTime;
 
-@Entity(foreignKeys =
-        {@ForeignKey(
+@Entity(foreignKeys = {
+        @ForeignKey(
                 entity = Memorial.class,
                 parentColumns = "id",
                 childColumns = "memorialID",
-                onDelete = CASCADE), @ForeignKey(entity = Memorial.class, parentColumns = "id",
-        childColumns = "memorialID", onDelete = CASCADE)})
+                onDelete = CASCADE),
+
+        @ForeignKey(
+                entity = Memorial.class,
+                parentColumns = "id",
+                childColumns = "memorialID",
+                onDelete = CASCADE)})
 public class Contribution
 {
     @PrimaryKey(autoGenerate = true)
