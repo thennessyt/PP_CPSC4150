@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_mid">
+<<<<<<< Updated upstream
 
     <ImageView
         android:id="@+id/img_logo"
@@ -23,6 +24,27 @@
         style="@style/buttonStyle"
         android:onClick="onClickCreate"
         android:text="@string/creatememorial"
+=======
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_creatememorial"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btn_creatememorial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_dark"
+        android:onClick="onClickCreate"
+        android:text="@string/creatememorial"
+        android:textColor="@color/black"
+>>>>>>> Stashed changes
         app:layout_constraintTop_toBottomOf="@id/img_logo"
         app:layout_constraintBottom_toTopOf="@id/btn_visitmemorial"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,7 +52,13 @@
 
     <Button
         android:id="@+id/btn_visitmemorial"
+<<<<<<< Updated upstream
         style="@style/buttonStyle"
+=======
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_dark"
+>>>>>>> Stashed changes
         android:onClick="onClickVisit"
         android:text="@string/visitmemorial"
         app:layout_constraintBottom_toBottomOf="parent"
