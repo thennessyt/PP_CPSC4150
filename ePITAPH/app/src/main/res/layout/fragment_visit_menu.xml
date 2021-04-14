@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VisitMenuFragment">
+    tools:context=".VisitMenuFragment"
+    android:background="@color/blue_mid">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <Button
+        android:id="@+id/savedMemorialsButton"
+        style="@style/buttonStyle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/memorialCodeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/saved_memorials"
+        android:onClick="onSavedClick"
+        />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/memorialCodeButton"
+        style="@style/buttonStyle"
+        app:layout_constraintTop_toBottomOf="@id/savedMemorialsButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/localMemorialsButton"
+        android:text="@string/enter_memorial_code"
+        android:onClick="onEnterClick"
+        />
+
+    <Button
+        android:id="@+id/localMemorialsButton"
+        style="@style/buttonStyle"
+        app:layout_constraintTop_toBottomOf="@id/memorialCodeButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/browse_local_memorials"
+        android:onClick="onLocalClick"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,29 @@
+<resources>
+<!--    <style name="bandListName">-->
+<!--        <item name="android:textSize">@dimen/list_text_size</item>-->
+<!--        <item name="android:padding">@dimen/list_padding</item>-->
+<!--    </style>-->
+
+<!--    <style name="bandName">-->
+<!--        <item name="android:textSize">@dimen/detail_band_text_size</item>-->
+<!--        <item name="android:textStyle">bold</item>-->
+<!--        <item name="android:paddingLeft">@dimen/detail_padding</item>-->
+<!--        <item name="android:paddingRight">@dimen/detail_padding</item>-->
+<!--        <item name="android:paddingTop">@dimen/detail_padding</item>-->
+<!--    </style>-->
+
+<!--    <style name="bandDescription">-->
+<!--        <item name="android:textSize">@dimen/detail_description_text_size</item>-->
+<!--        <item name="android:paddingLeft">@dimen/detail_padding</item>-->
+<!--        <item name="android:paddingRight">@dimen/detail_padding</item>-->
+<!--        <item name="android:paddingTop">@dimen/detail_padding</item>-->
+<!--    </style>-->
+
+    <style name="buttonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/purple_dark</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

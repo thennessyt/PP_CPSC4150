@@ -8,6 +8,33 @@
     <string name="savedmemorials">Saved Memorials</string>
     <string name="memorialcode">Enter Memorial Code</string>
     <string name="localmemorials">Browse Local Memorials</string>
+
+    <!--   CREATE MEMORIAL STRINGS     -->
+    <string name="name">Name of Loved One</string>
+    <string name="entername">Enter name...</string>
+    <string name="gender">Gender of Loved One</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="nonbinary">Nonbinary</string>
+    <string name="epitaph">Memorial Epitaph</string>
+    <string name="enterepitaph">Enter epitaph...</string>
+    <string name="description">Memorial Description</string>
+    <string name="enterdesc">Enter description...</string>
+    <string name="mainimage">Main Photo</string>
+    <string name="visibility">Memorial Visibility</string>
+    <string name="keepprivate">Keep my memorial private</string>
+    <string name="commentpermissions">Comment Permissions</string>
+    <string name="nocomments">No Comments</string>
+    <string name="myapproval">My Approval</string>
+    <string name="open">Open</string>
+    <string name="location">Memorial Location</string>
+    <string name="usemine">My Current Location</string>
+    <string name="entercity">Enter City</string>
+    <string name="postmemorial">Post Memorial</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="saved_memorials">Saved Memorials</string>
+    <string name="enter_memorial_code">Enter Memorial Code</string>
+    <string name="browse_local_memorials">Browse Local Memorials</string>
 </resources>

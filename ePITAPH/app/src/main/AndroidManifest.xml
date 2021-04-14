@@ -13,7 +13,7 @@
         android:theme="@style/Theme.EPITAPH">
         <activity android:name=".MemorialViewActivity"></activity>
         <activity android:name=".CreateMemorialActivity" />
-        <activity android:name=".VistMenuActivity" />
+        <activity android:name=".VisitMenuActivity" />
         <activity android:name=".CodeMemorialActivity" />
         <activity android:name=".SavedMemorialsActivity" />
         <activity android:name=".LocalMemorialsActivity" />

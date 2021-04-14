@@ -3,52 +3,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_opening_menu"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/btn_entercode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="38dp"
-        android:backgroundTint="@color/purple_dark"
-        android:text="@string/creatememorial"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/btn_browselocal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_browselocal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="446dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="237dp"
-        android:backgroundTint="@color/purple_dark"
-        android:text="@string/visitmemorial"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent"
+    android:background="@color/blue_mid">
 
     <ImageView
         android:id="@+id/img_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="146dp"
-        android:layout_marginEnd="145dp"
-        android:layout_marginBottom="86dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_entercode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_creatememorial"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btn_creatememorial"
+        style="@style/buttonStyle"
+        android:onClick="onClickCreate"
+        android:text="@string/creatememorial"
+        app:layout_constraintTop_toBottomOf="@id/img_logo"
+        app:layout_constraintBottom_toTopOf="@id/btn_visitmemorial"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/btn_visitmemorial"
+        style="@style/buttonStyle"
+        android:onClick="onClickVisit"
+        android:text="@string/visitmemorial"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_creatememorial" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
