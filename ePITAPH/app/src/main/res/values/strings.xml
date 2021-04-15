@@ -37,6 +37,6 @@
     <string name="saved_memorials">Saved Memorials</string>
     <string name="enter_memorial_code">Enter Memorial Code</string>
     <string name="browse_local_memorials">Browse Local Memorials</string>
-    <string name="your_memorial_id">Your Memorial ID</string>
+    <string name="memorial_id">Memorial ID</string>
     <string name="go_to_memorial">Go To Memorial</string>
 </resources>

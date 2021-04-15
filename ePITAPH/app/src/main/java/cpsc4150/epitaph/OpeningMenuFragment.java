@@ -23,7 +23,4 @@ public class OpeningMenuFragment extends Fragment
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_opening_menu, container, false);
     }
-
-
-
 }

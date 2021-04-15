@@ -10,7 +10,6 @@ import android.view.View;
 
 public class OpeningMenuActivity extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class VisitMenuActivity extends AppCompatActivity
 {
@@ -25,5 +27,26 @@ public class VisitMenuActivity extends AppCompatActivity
                     .add(R.id.activity_visit_menu, fragment)
                     .commit();
         }
+    }
+
+    public void onSavedClick(View view)
+    {
+        //Start SavedMemorialsActivity
+        Intent intent = new Intent(this, SavedMemorialsActivity.class);
+        startActivity(intent);
+    }
+
+    public void onEnterClick(View view)
+    {
+        //Start CodeMemorialActivity
+        Intent intent = new Intent(this, CodeMemorialActivity.class);
+        startActivity(intent);
+    }
+
+    public void onLocalClick(View view)
+    {
+        //Start LocalMemorialsActivity
+        Intent intent = new Intent(this, LocalMemorialsActivity.class);
+        startActivity(intent);
     }
 }
