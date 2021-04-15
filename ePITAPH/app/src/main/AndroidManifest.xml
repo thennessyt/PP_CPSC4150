@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cpsc4150.hw2.epitaph">
+    package="cpsc4150.epitaph">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,13 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPITAPH">
-        <activity android:name=".MemorialViewActivity"></activity>
-        <activity android:name=".CreateMemorialActivity" />
-        <activity android:name=".VisitMenuActivity" />
-        <activity android:name=".CodeMemorialActivity" />
-        <activity android:name=".SavedMemorialsActivity" />
-        <activity android:name=".LocalMemorialsActivity" />
-        <activity android:name=".OpeningMenuActivity">
+        <activity android:name="cpsc4150.epitaph.MemorialViewActivity"></activity>
+        <activity android:name="cpsc4150.epitaph.CreateMemorialActivity" />
+        <activity android:name="cpsc4150.epitaph.VisitMenuActivity" />
+        <activity android:name="cpsc4150.epitaph.CodeMemorialActivity" />
+        <activity android:name="cpsc4150.epitaph.SavedMemorialsActivity" />
+        <activity android:name="cpsc4150.epitaph.LocalMemorialsActivity" />
+        <activity android:name="cpsc4150.epitaph.OpeningMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "cpsc4150.hw2.epitaph"
+        applicationId "cpsc4150.epitaph"
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1

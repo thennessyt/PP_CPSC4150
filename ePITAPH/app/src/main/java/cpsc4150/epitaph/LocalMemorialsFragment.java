@@ -1,4 +1,4 @@
-package cpsc4150.hw2.epitaph;
+package cpsc4150.epitaph;
 
 import android.os.Bundle;
 
@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CreateMemorialFragment#newInstance} factory method to
+ * Use the {@link LocalMemorialsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreateMemorialFragment extends Fragment {
+public class LocalMemorialsFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class CreateMemorialFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CreateMemorialFragment() {
+    public LocalMemorialsFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class CreateMemorialFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CreateMemorialFragment.
+     * @return A new instance of fragment LocalMemorialsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CreateMemorialFragment newInstance(String param1, String param2) {
-        CreateMemorialFragment fragment = new CreateMemorialFragment();
+    public static LocalMemorialsFragment newInstance(String param1, String param2) {
+        LocalMemorialsFragment fragment = new LocalMemorialsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class CreateMemorialFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_memorial, container, false);
+        return inflater.inflate(R.layout.fragment_local_memorials, container, false);
     }
 }

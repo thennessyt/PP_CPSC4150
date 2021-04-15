@@ -1,4 +1,4 @@
-package cpsc4150.hw2.epitaph;
+package cpsc4150.epitaph;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

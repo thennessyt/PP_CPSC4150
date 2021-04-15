@@ -1,4 +1,4 @@
-package cpsc4150.hw2.epitaph;
+package cpsc4150.epitaph;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class OpeningMenuActivity extends AppCompatActivity
 {
@@ -30,7 +31,7 @@ public class OpeningMenuActivity extends AppCompatActivity
 
     // ------------ BUTTON ON-CLICK
     //create a new memorial
-    public void onClickCreate()
+    public void onClickCreate(View view)
     {
         //Start CreateMemorialActivity
         Intent intent = new Intent(this, CreateMemorialActivity.class);
@@ -39,7 +40,7 @@ public class OpeningMenuActivity extends AppCompatActivity
 
 
     //visit memorial menu
-    public void onClickVisit()
+    public void onClickVisit(View view)
     {
         //Start VisitMenuActivity
         Intent intent = new Intent(this, VisitMenuActivity.class);

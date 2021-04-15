@@ -1,14 +1,14 @@
-package cpsc4150.hw2.epitaph;
+package cpsc4150.epitaph;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class CodeMemorialActivity extends AppCompatActivity {
+public class CreateCommentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_code_memorial);
+        setContentView(R.layout.activity_create_comment);
     }
 }

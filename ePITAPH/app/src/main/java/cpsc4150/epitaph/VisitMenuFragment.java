@@ -1,4 +1,4 @@
-package cpsc4150.hw2.epitaph;
+package cpsc4150.epitaph;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,17 +9,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class VisitMenuFragment extends Fragment {
+public class VisitMenuFragment extends Fragment
+{
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_visit_menu, container, false);
     }
