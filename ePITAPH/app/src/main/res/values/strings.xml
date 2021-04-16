@@ -12,6 +12,9 @@
     <!--   CREATE MEMORIAL STRINGS     -->
     <string name="name">Name of Loved One</string>
     <string name="entername">Enter name...</string>
+    <string name="years">Years of Birth and Death</string>
+    <string name="birthyear">Birth year...</string>
+    <string name="deathyear">Death year...</string>
     <string name="gender">Gender of Loved One</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
@@ -24,7 +27,9 @@
     <string name="visibility">Memorial Visibility</string>
     <string name="keepprivate">Keep my memorial private</string>
     <string name="commentpermissions">Comment Permissions</string>
+    <string name="contributionpermissions">Contribution Permissions</string>
     <string name="nocomments">No Comments</string>
+    <string name="nocontributions">No Contributions</string>
     <string name="myapproval">My Approval</string>
     <string name="open">Open</string>
     <string name="location">Memorial Location</string>

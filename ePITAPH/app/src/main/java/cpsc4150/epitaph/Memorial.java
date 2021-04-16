@@ -11,6 +11,7 @@ import java.util.Vector;
 @Entity
 public class Memorial
 {
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     protected int id;
@@ -47,4 +48,18 @@ public class Memorial
     @ColumnInfo(name = "locations")
     private Vector<Location> locations;
     //uses the Android location library so hopefully there won't be conversion issues
+
+
+    //TODO: pre/post, actual most of this cosntructor
+    Memorial(String n, int by, int dy, String e, String d, String comS, String conS,
+             Vector<Location> locs)
+    {
+        name = n;
+        byear = by;
+        dyear = dy;
+        epitaph = e;
+        description = d;
+        commentSettings = comS;
+        contributionSettings = conS;
+    }
 }
