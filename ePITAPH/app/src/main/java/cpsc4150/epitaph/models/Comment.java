@@ -16,6 +16,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 onDelete = CASCADE)})
 public class Comment extends Contribution
 {
+    //TODO: erroring because it inherits an ID from contribution: do we remove this one?
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     protected int id;

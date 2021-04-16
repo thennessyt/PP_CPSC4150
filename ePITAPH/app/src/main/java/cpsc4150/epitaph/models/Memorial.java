@@ -4,8 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+
+import cpsc4150.epitaph.models.LocationVectorTypeConverters;
+
 import android.location.Location;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.Collections;
 import java.util.Vector;
 
 @Entity
@@ -45,10 +55,14 @@ public class Memorial
     private String contributionSettings;
 
     @NonNull
+    @TypeConverters(LocationVectorTypeConverters.class)
     @ColumnInfo(name = "locations")
     private Vector<Location> locations;
     //uses the Android location library so hopefully there won't be conversion issues
 
+    Memorial(){
+
+    }
 
     //TODO: pre/post, actual most of this cosntructor
     Memorial(String n, int by, int dy, String e, String d, String comS, String conS,
@@ -62,4 +76,102 @@ public class Memorial
         commentSettings = comS;
         contributionSettings = conS;
     }
+
+    //------------------------ GETTER METHODS ------------------------
+    public int getByear()
+    {
+        return byear;
+    }
+
+    public int getDyear()
+    {
+        return dyear;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    @NonNull
+    public String getCommentSettings()
+    {
+        return commentSettings;
+    }
+
+    @NonNull
+    public String getContributionSettings()
+    {
+        return contributionSettings;
+    }
+
+    @NonNull
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    @NonNull
+    public String getEpitaph()
+    {
+        return epitaph;
+    }
+
+    public Vector<Location> getLocations()
+    {
+        return locations;
+    }
+
+    //------------------------ SETTER METHODS ------------------------
+
+
+    public void setByear(int byear) {
+        this.byear = byear;
+    }
+
+
+    public void setCommentSettings(@NonNull String commentSettings)
+    {
+        this.commentSettings = commentSettings;
+    }
+
+    public void setDescription(@NonNull String description)
+    {
+        this.description = description;
+    }
+
+    public void setContributionSettings(@NonNull String contributionSettings)
+    {
+        this.contributionSettings = contributionSettings;
+    }
+
+    public void setDyear(int dyear)
+    {
+        this.dyear = dyear;
+    }
+
+    public void setEpitaph(@NonNull String epitaph)
+    {
+        this.epitaph = epitaph;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLocations(@NonNull Vector<Location> locations)
+    {
+        this.locations = locations;
+    }
+
+    public void setName(@NonNull String name)
+    {
+        this.name = name;
+    }
+
 }
