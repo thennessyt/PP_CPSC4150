@@ -1,4 +1,4 @@
-package cpsc4150.epitaph;
+package cpsc4150.epitaph.models;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -31,8 +31,6 @@ public class Contribution
     @NonNull
     @ColumnInfo(name = "memorial_id")
     protected int memorialID;
-
-
 
     @NonNull
     @ColumnInfo(name = "status")

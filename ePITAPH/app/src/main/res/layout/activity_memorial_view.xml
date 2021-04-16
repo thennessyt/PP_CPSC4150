@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/activity_memorial_view"
-    tools:context=".MemorialViewActivity">
+    tools:context=".activities.MemorialViewActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

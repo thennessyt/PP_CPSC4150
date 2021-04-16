@@ -1,4 +1,4 @@
-package cpsc4150.epitaph;
+package cpsc4150.epitaph.models;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

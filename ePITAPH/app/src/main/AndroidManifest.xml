@@ -11,13 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPITAPH">
-        <activity android:name="cpsc4150.epitaph.MemorialViewActivity"></activity>
-        <activity android:name="cpsc4150.epitaph.CreateMemorialActivity" />
-        <activity android:name="cpsc4150.epitaph.VisitMenuActivity" />
-        <activity android:name="cpsc4150.epitaph.CodeMemorialActivity" />
-        <activity android:name="cpsc4150.epitaph.SavedMemorialsActivity" />
-        <activity android:name="cpsc4150.epitaph.LocalMemorialsActivity" />
-        <activity android:name="cpsc4150.epitaph.OpeningMenuActivity">
+        <activity android:name="cpsc4150.epitaph.activities.MemorialViewActivity"></activity>
+        <activity android:name="cpsc4150.epitaph.activities.CreateMemorialActivity" />
+        <activity android:name="cpsc4150.epitaph.activities.VisitMenuActivity" />
+        <activity android:name="cpsc4150.epitaph.activities.CodeMemorialActivity" />
+        <activity android:name="cpsc4150.epitaph.activities.SavedMemorialsActivity" />
+        <activity android:name="cpsc4150.epitaph.activities.LocalMemorialsActivity" />
+        <activity android:name="cpsc4150.epitaph.activities.OpeningMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

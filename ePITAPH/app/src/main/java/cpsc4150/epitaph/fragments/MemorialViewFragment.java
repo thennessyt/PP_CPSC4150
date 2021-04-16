@@ -1,4 +1,4 @@
-package cpsc4150.epitaph;
+package cpsc4150.epitaph.fragments;
 
 import android.os.Bundle;
 
@@ -8,13 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CodeMemorialFragment extends Fragment
+import cpsc4150.epitaph.R;
+import cpsc4150.epitaph.activities.CodeMemorialActivity;
+
+public class MemorialViewFragment extends Fragment
 {
+    int memorialID;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        Bundle extra = getActivity().getIntent().getExtras();
+        memorialID = extra.getInt(CodeMemorialActivity.EXTRA_MEMORIAL_CODE);
     }
 
     @Override
@@ -22,7 +29,6 @@ public class CodeMemorialFragment extends Fragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_code_memorial, container, false);
-
+        return inflater.inflate(R.layout.fragment_memorial_view, container, false);
     }
 }

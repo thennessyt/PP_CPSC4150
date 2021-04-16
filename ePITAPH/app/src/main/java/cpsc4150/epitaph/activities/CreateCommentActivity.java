@@ -1,14 +1,16 @@
-package cpsc4150.epitaph;
+package cpsc4150.epitaph.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class LocalMemorialsActivity extends AppCompatActivity {
+import cpsc4150.epitaph.R;
+
+public class CreateCommentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_local_memorials);
+        setContentView(R.layout.activity_create_comment);
     }
 }

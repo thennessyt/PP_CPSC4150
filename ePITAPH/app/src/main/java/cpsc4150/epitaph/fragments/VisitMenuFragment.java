@@ -1,4 +1,4 @@
-package cpsc4150.epitaph;
+package cpsc4150.epitaph.fragments;
 
 import android.os.Bundle;
 
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class OpeningMenuFragment extends Fragment
+import cpsc4150.epitaph.R;
+
+public class VisitMenuFragment extends Fragment
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -21,6 +23,6 @@ public class OpeningMenuFragment extends Fragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_opening_menu, container, false);
+        return inflater.inflate(R.layout.fragment_visit_menu, container, false);
     }
 }

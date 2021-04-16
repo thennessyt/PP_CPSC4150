@@ -1,4 +1,4 @@
-package cpsc4150.epitaph;
+package cpsc4150.epitaph.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,6 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import cpsc4150.epitaph.fragments.OpeningMenuFragment;
+import cpsc4150.epitaph.R;
 
 public class OpeningMenuActivity extends AppCompatActivity
 {

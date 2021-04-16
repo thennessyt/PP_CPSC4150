@@ -1,4 +1,4 @@
-package cpsc4150.epitaph;
+package cpsc4150.epitaph.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import cpsc4150.epitaph.fragments.CodeMemorialFragment;
+import cpsc4150.epitaph.R;
 
 public class CodeMemorialActivity extends AppCompatActivity
 {
