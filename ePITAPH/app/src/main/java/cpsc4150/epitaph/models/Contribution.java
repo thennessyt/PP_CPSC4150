@@ -18,9 +18,9 @@ import java.time.LocalDateTime;
                 onDelete = CASCADE),
 
         @ForeignKey(
-                entity = Memorial.class,
+                entity = Account.class,
                 parentColumns = "id",
-                childColumns = "memorialID",
+                childColumns = "accountID",
                 onDelete = CASCADE)})
 public class Contribution
 {
@@ -31,6 +31,10 @@ public class Contribution
     @NonNull
     @ColumnInfo(name = "memorial_id")
     protected int memorialID;
+
+    @NonNull
+    @ColumnInfo(name = "account_id")
+    protected int accountID;
 
     @NonNull
     @ColumnInfo(name = "status")

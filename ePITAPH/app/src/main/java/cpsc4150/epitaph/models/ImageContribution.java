@@ -4,7 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.PrimaryKey;
+
+import java.io.File;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -14,23 +15,13 @@ import static androidx.room.ForeignKey.CASCADE;
                 parentColumns = "id",
                 childColumns = "contributionID",
                 onDelete = CASCADE)})
-public class Comment extends Contribution
+public class ImageContribution extends Contribution
 {
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    protected int id;
+    @NonNull
+    @ColumnInfo(name = "contribution_id")
+    protected int contributionID;
 
     @NonNull
-    @ColumnInfo(name = "likes")
-    protected int likes;
-
-    @NonNull
-    @ColumnInfo(name = "text")
-    protected String text;
-
-    Comment(String text)
-    {
-        this.text = text;
-        this.likes = 0;
-    }
+    @ColumnInfo(name = "image")
+    protected File image;
 }

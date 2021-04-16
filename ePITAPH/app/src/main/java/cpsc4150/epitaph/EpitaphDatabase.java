@@ -18,13 +18,14 @@ public abstract class EpitaphDatabase extends RoomDatabase
     private static EpitaphDatabase mEpitaphDatabase;
 
     // Singleton
-    public static EpitaphDatabase getInstance(Context context) {
-        if (mEpitaphDatabase == null) {
+    public static EpitaphDatabase getInstance(Context context)
+    {
+        if (mEpitaphDatabase == null)
+        {
             mEpitaphDatabase = Room.databaseBuilder(context, EpitaphDatabase.class, DATABASE_NAME)
                     .allowMainThreadQueries()
                     .build();
         }
         return mEpitaphDatabase;
     }
-
 }

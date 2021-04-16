@@ -1,10 +1,11 @@
 package cpsc4150.epitaph.models;
 
+import android.media.MediaPlayer;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -14,23 +15,14 @@ import static androidx.room.ForeignKey.CASCADE;
                 parentColumns = "id",
                 childColumns = "contributionID",
                 onDelete = CASCADE)})
-public class Comment extends Contribution
+public class AudioContribution
 {
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    protected int id;
+    @NonNull
+    @ColumnInfo(name = "contribution_id")
+    protected int contributionID;
 
     @NonNull
-    @ColumnInfo(name = "likes")
-    protected int likes;
+    @ColumnInfo(name = "audio")
+    protected MediaPlayer audio;
 
-    @NonNull
-    @ColumnInfo(name = "text")
-    protected String text;
-
-    Comment(String text)
-    {
-        this.text = text;
-        this.likes = 0;
-    }
 }
