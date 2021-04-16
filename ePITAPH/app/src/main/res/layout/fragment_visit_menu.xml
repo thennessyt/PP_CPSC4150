@@ -9,18 +9,20 @@
 
     <Button
         android:id="@+id/savedMemorialsButton"
-        android:onClick="onSavedClick"
         style="@style/buttonStyle"
+        android:fontFamily="@font/avenir"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/memorialCodeButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:text="@string/saved_memorials"
+        android:onClick="onSavedClick"
         />
 
     <Button
         android:id="@+id/memorialCodeButton"
         style="@style/buttonStyle"
+        android:fontFamily="@font/avenir"
         app:layout_constraintTop_toBottomOf="@id/savedMemorialsButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -32,6 +34,7 @@
     <Button
         android:id="@+id/localMemorialsButton"
         style="@style/buttonStyle"
+        android:fontFamily="@font/avenir"
         app:layout_constraintTop_toBottomOf="@id/memorialCodeButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

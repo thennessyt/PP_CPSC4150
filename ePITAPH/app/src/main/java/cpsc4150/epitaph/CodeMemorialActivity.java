@@ -28,7 +28,7 @@ public class CodeMemorialActivity extends AppCompatActivity
 
         if (fragment == null)
         {
-            fragment = new OpeningMenuFragment();
+            fragment = new CodeMemorialFragment();
             fragmentManager.beginTransaction()
                     .add(R.id.activity_code_memorial, fragment)
                     .commit();
