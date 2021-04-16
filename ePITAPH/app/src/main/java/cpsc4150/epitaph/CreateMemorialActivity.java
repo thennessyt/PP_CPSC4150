@@ -61,6 +61,6 @@ public class CreateMemorialActivity extends AppCompatActivity {
         //Memorial(String n, int by, int dy, String e, String d, String comS, String conS,
             //Vector< Location > locs)
 
-
+        //todo: make memorial object, next page after making memorial (confirmation that gives code)
     }
 }
