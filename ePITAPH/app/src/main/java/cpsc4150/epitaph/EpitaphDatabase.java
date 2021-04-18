@@ -7,10 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import cpsc4150.epitaph.models.Account;
-import cpsc4150.epitaph.models.AudioContribution;
 import cpsc4150.epitaph.models.Comment;
-import cpsc4150.epitaph.models.Contribution;
-import cpsc4150.epitaph.models.ImageContribution;
 import cpsc4150.epitaph.models.Memorial;
 
 @Database(entities = {Account.class, Memorial.class, Comment.class}, version = 1)

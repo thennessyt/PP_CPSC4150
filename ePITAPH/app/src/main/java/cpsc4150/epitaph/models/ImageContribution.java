@@ -9,16 +9,20 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
-import java.io.File;
-
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(foreignKeys = {
         @ForeignKey(
                 entity = Account.class,
                 parentColumns = "id",
-                childColumns = "contributionID",
-                onDelete = CASCADE)})
+                childColumns = "account_id",
+                onDelete = CASCADE),
+        @ForeignKey(
+                entity = Memorial.class,
+                parentColumns = "id",
+                childColumns = "memorial_id",
+                onDelete = CASCADE
+        )})
 public class ImageContribution
 {
     @NonNull
@@ -33,5 +37,9 @@ public class ImageContribution
 
     @NonNull
     @ColumnInfo(name = "account_id")
-    protected int accountID;
+    public int accountID;
+
+    @NonNull
+    @ColumnInfo(name = "memorial_id")
+    public int memorialID;
 }

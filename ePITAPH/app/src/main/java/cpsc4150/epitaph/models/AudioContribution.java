@@ -14,8 +14,14 @@ import static androidx.room.ForeignKey.CASCADE;
         @ForeignKey(
                 entity = Account.class,
                 parentColumns = "id",
-                childColumns = "contributionID",
-                onDelete = CASCADE)})
+                childColumns = "account_id",
+                onDelete = CASCADE),
+        @ForeignKey(
+                entity = Memorial.class,
+                parentColumns = "id",
+                childColumns = "memorial_id",
+                onDelete = CASCADE
+        )})
 public class AudioContribution
 {
     @NonNull
@@ -29,5 +35,9 @@ public class AudioContribution
 
     @NonNull
     @ColumnInfo(name = "account_id")
-    protected int accountID;
+    public int accountID;
+
+    @NonNull
+    @ColumnInfo(name = "memorial_id")
+    public int memorialID;
 }
