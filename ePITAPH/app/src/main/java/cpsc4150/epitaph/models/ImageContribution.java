@@ -28,12 +28,12 @@ public class ImageContribution
     @NonNull
     @PrimaryKey
     @ColumnInfo(name = "id")
-    protected int id;
+    public int id;
 
     @NonNull
     @TypeConverters(ImageTypeConverters.class)
     @ColumnInfo(name = "image")
-    protected Bitmap image;
+    public Bitmap image;
 
     @NonNull
     @ColumnInfo(name = "account_id")
@@ -48,5 +48,22 @@ public class ImageContribution
         this.image = image;
         this.accountID = accountID;
         this.memorialID = memorialID;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @NonNull
+    public Bitmap getImage() {
+        return image;
+    }
+
+    public int getAccountID() {
+        return accountID;
+    }
+
+    public int getMemorialID() {
+        return memorialID;
     }
 }

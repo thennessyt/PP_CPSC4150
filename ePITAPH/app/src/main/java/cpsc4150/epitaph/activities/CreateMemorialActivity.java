@@ -129,8 +129,6 @@ public class CreateMemorialActivity extends AppCompatActivity
         //ib_memorialimage
         //TODO: gotta do camera stuff first but figure this out man . it'll go in as
         //TODO: a contribution object
-        //cb_private : is it private (CODE ACCESS ONLY)
-        CheckBox cb_private = findViewById(R.id.cb_private);
         //rg_commentpermissions : what level of approval is it at
         //rb_nocomment
         RadioButton rb_nocomm = findViewById(R.id.rb_nocomments);

@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity
         //if it's not null, meaning someone is already signed in
         if(!(Objects.isNull(gaccount))){
             //go to the opening menu
+            System.out.println("Signed in previously! Moving on...");
             //Start Opening Menu Activity
             Account currAccount= db.accountDao().getAccount(gaccount.getEmail());
             Intent intent = new Intent(this, OpeningMenuActivity.class);
@@ -85,6 +86,7 @@ public class LoginActivity extends AppCompatActivity
 
     public void onSignInClick(View v)
     {
+        System.out.println("IN SIGNIN");
         signIn();
     }
 
@@ -98,10 +100,11 @@ public class LoginActivity extends AppCompatActivity
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
+        System.out.println("GOT RESULT");
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN)
-        {
+        if (requestCode == RC_SIGN_IN) {
+            System.out.println("RESULT WAS SIGNIN");
             // The Task returned from this call is always completed, no need to attach
             // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -111,17 +114,17 @@ public class LoginActivity extends AppCompatActivity
     }
 
     //this is where they sign in
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask)
-    {
-        try
-        {
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        System.out.println("TASK COMPLETE");
+        try {
             GoogleSignInAccount gaccount = completedTask.getResult(ApiException.class);
 
             Account currAccount;
             // Signed in successfully, show authenticated UI.
             //check database for existing account
-            try
-            {
+            try{
+
+                System.out.println("IN TRY");
                 currAccount = db.accountDao().getAccount(gaccount.getEmail());
                 if (Objects.isNull(currAccount))
                 {
@@ -132,9 +135,8 @@ public class LoginActivity extends AppCompatActivity
                     db.accountDao().insertAccount(currAccount);
 
                 }
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e){
+                System.out.println("IN CATCH");
 
                 currAccount = new Account(gaccount.getGivenName() + " " +
                         gaccount.getFamilyName(), gaccount.getEmail());
