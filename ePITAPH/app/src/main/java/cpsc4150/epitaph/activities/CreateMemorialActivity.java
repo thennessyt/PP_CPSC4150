@@ -36,15 +36,15 @@ import cpsc4150.epitaph.fragments.CreateMemorialFragment;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.models.Memorial;
 
-public class CreateMemorialActivity extends AppCompatActivity {
-
-
+public class CreateMemorialActivity extends AppCompatActivity
+{
     private FusedLocationProviderClient fusedLocationClient;
 
     Location myLoc = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_memorial);
 
@@ -54,7 +54,8 @@ public class CreateMemorialActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.activity_create_memorial);
 
-        if (fragment == null) {
+        if (fragment == null)
+        {
             fragment = new CreateMemorialFragment();
             fragmentManager.beginTransaction()
                     .add(R.id.activity_create_memorial, fragment)
@@ -88,7 +89,8 @@ public class CreateMemorialActivity extends AppCompatActivity {
         }
         Task<Location> mylocTask = fusedLocationClient.getLastLocation();
         fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                .addOnSuccessListener(this, new OnSuccessListener<Location>()
+                {
                     @Override
                     public void onSuccess(Location location) {
                         if (location != null) {
@@ -108,7 +110,8 @@ public class CreateMemorialActivity extends AppCompatActivity {
     }
 
     //create the memorial
-    public void onClickCreateMemorial(View view) {
+    public void onClickCreateMemorial(View view)
+    {
         //here is a list of the objects to get things from
         //et_name : name of loved one
         EditText et_name = findViewById(R.id.et_name);
@@ -116,14 +119,6 @@ public class CreateMemorialActivity extends AppCompatActivity {
         EditText et_birthyear = findViewById(R.id.et_birthyear);
         //et_deathyear : death year, 4 digits
         EditText et_deathyear = findViewById(R.id.et_deathyear);
-        //rg_gender : radio button group
-        //rb_male
-        RadioButton rb_male = findViewById(R.id.rb_male);
-        //rb_female
-        RadioButton rb_female = findViewById(R.id.rb_female);
-        //rb_nonbinary
-        RadioButton rb_nonbinary = findViewById(R.id.rb_nonbinary);
-        //et_epitaph : memorial tagline
         EditText et_epitaph = findViewById(R.id.et_epitaph);
         //et_description : memorial description
         EditText et_description = findViewById(R.id.et_description);
@@ -162,7 +157,7 @@ public class CreateMemorialActivity extends AppCompatActivity {
         String d = et_description.getText().toString();
         String comS = "";
         String conS = "";
-        Vector<Location> locs = new Vector<Location>();
+        Vector<Location> locs = new Vector<>();
         //if their location is checked and location isn't null
         if (cb_mylocation.isChecked() && !(Objects.isNull(myLoc)))
         {

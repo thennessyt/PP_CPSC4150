@@ -40,7 +40,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/memorialImage"
-        android:text=""
+        android:text="In Loving Memory"
         android:textStyle="bold|italic"/>
 
     <TextView
@@ -51,7 +51,7 @@
         android:fontFamily="@font/avenir"
         app:layout_constraintTop_toBottomOf="@id/memorialEpitaph"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text=""
+        android:text="Unknown"
         android:paddingBottom="15dp"/>
 
     <TextView
@@ -62,7 +62,7 @@
         android:fontFamily="@font/avenir"
         app:layout_constraintTop_toBottomOf="@id/memorialName"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text=""
+        android:text="Unknown - Unknown"
         android:textStyle="italic"
         android:paddingBottom="15dp"/>
 
@@ -74,7 +74,7 @@
         android:fontFamily="@font/avenir"
         app:layout_constraintTop_toBottomOf="@id/memorialDateRange"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text=""/>
+        android:text="Dearly missed."/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addButton"

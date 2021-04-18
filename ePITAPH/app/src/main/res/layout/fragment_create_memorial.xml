@@ -82,51 +82,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_years" />
 
                 <TextView
-                    android:id="@+id/tv_gender"
-                    style="@style/headerStyle"
-                    android:fontFamily="@font/avenir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/gender"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_deathyear" />
-
-                <RadioGroup
-                    android:id="@+id/rg_gender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_gender">
-
-                    <RadioButton
-                        android:id="@+id/rb_male"
-                        style="@style/textStyle"
-                        android:fontFamily="@font/avenir"
-                        app:buttonTint="@color/purple_dark"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/male" />
-
-                    <RadioButton
-                        android:id="@+id/rb_female"
-                        style="@style/textStyle"
-                        android:fontFamily="@font/avenir"
-                        app:buttonTint="@color/purple_dark"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/female" />
-
-                    <RadioButton
-                        android:id="@+id/rb_nonbinary"
-                        style="@style/textStyle"
-                        android:fontFamily="@font/avenir"
-                        app:buttonTint="@color/purple_dark"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/nonbinary" />
-                </RadioGroup>
-
-                <TextView
                     android:id="@+id/tv_epitaph"
                     style="@style/headerStyle"
                     android:fontFamily="@font/avenir"
@@ -134,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/epitaph"
                     app:layout_constraintStart_toStartOf="@+id/et_name"
-                    app:layout_constraintTop_toBottomOf="@+id/rg_gender" />
+                    app:layout_constraintTop_toBottomOf="@+id/et_deathyear" />
 
                 <EditText
                     android:id="@+id/et_epitaph"

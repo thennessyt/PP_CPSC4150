@@ -60,7 +60,8 @@ public class Memorial
     private Vector<Location> locations;
     //uses the Android location library so hopefully there won't be conversion issues
 
-    public Memorial(){
+    public Memorial()
+    {
 
     }
 
