@@ -68,14 +68,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        GoogleSignInAccount gaccount = GoogleSignIn.getLastSignedInAccount(this);
         //if it's not null, meaning someone is already signed in
-        if(!(Objects.isNull(account))){
+        if(!(Objects.isNull(gaccount))){
             //go to the opening menu
             //Start Opening Menu Activity
-            //TODO: move to opening menu with account
+            Account currAccount= db.accountDao().getAccount(gaccount.getEmail());
             Intent intent = new Intent(this, OpeningMenuActivity.class);
-            intent.putExtra(Account.EXTRA_ACCOUNT_ID, //TODO: get the right integer from the database);
+            intent.putExtra(Account.EXTRA_ACCOUNT_ID, currAccount.getId());
             startActivity(intent);
         }
     }
@@ -113,6 +113,14 @@ public class LoginActivity extends AppCompatActivity {
             //check database for existing account
             try{
                 currAccount = db.accountDao().getAccount(gaccount.getEmail());
+                if (Objects.isNull(currAccount)){
+
+                    currAccount = new Account(gaccount.getGivenName() + " " +
+                            gaccount.getFamilyName(), gaccount.getEmail());
+
+                    db.accountDao().insertAccount(currAccount);
+
+                }
             } catch (Exception e){
 
                 currAccount = new Account(gaccount.getGivenName() + " " +
@@ -121,6 +129,12 @@ public class LoginActivity extends AppCompatActivity {
                 db.accountDao().insertAccount(currAccount);
 
             }
+
+            currAccount= db.accountDao().getAccount(gaccount.getEmail());
+
+            Intent intent = new Intent(this, OpeningMenuActivity.class);
+            intent.putExtra(Account.EXTRA_ACCOUNT_ID, currAccount.getId());
+            startActivity(intent);
             //TODO: move to opening menu with account
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.

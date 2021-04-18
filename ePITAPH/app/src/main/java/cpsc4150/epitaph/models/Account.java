@@ -37,4 +37,13 @@ public class Account
     {
         return name;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    @NonNull
+    public String getEmail() {
+        return email;
+    }
 }
