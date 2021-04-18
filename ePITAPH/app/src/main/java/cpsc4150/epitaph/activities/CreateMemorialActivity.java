@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -18,8 +20,16 @@ import android.location.*;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
+import java.util.Objects;
 import java.util.Vector;
 
 import cpsc4150.epitaph.fragments.CreateMemorialFragment;
@@ -30,6 +40,8 @@ public class CreateMemorialActivity extends AppCompatActivity {
 
 
     private FusedLocationProviderClient fusedLocationClient;
+
+    Location myLoc = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +62,50 @@ public class CreateMemorialActivity extends AppCompatActivity {
         }
     }
 
+    //if they want from their location, get the location
+    public void onClickMyLocation(View view){
+        //make the submit button unclickable
+        Button submit = findViewById(R.id.btn_creatememorial);
+        submit.setClickable(false);
+        submit.setText("Please wait...");
+        //if we don't have location permission ................. that sucks
+        //TODO: what do we do if they say no? also listen to the todo inside that function \v
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+
+            String[] permissions = new String[1];
+            permissions[0] = Manifest.permission.ACCESS_COARSE_LOCATION;
+            ActivityCompat.requestPermissions(this, permissions, 0);
+            System.out.println("Requesting permissions...");
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            // return;
+        }
+        Task<Location> mylocTask = fusedLocationClient.getLastLocation();
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        if (location != null) {
+                            System.out.println("LOCATION RECEIVED");
+                            myLoc = mylocTask.getResult();
+                            // write code here to to make the API call to the weather service and update the UI
+                            // this code here is running on the Main UI thread as far as I understand
+                            //make submit button clickable
+                            Button submit = findViewById(R.id.btn_creatememorial);
+                            submit.setClickable(true);
+                            submit.setText("CREATE MEMORIAL");
+                        } else {
+                            System.out.println("LOCATION FAILED");
+                        }
+                    }
+                });
+    }
 
     //create the memorial
     public void onClickCreateMemorial(View view) {
@@ -79,7 +135,7 @@ public class CreateMemorialActivity extends AppCompatActivity {
         CheckBox cb_private = findViewById(R.id.cb_private);
         //rg_commentpermissions : what level of approval is it at
         //rb_nocomment
-        RadioButton rb_nocomments = findViewById(R.id.rb_nocomments);
+        RadioButton rb_nocomm = findViewById(R.id.rb_nocomments);
         //rb_myapproval
         RadioButton rb_myapproval = findViewById(R.id.rb_myApproval);
         //rb_open
@@ -107,36 +163,12 @@ public class CreateMemorialActivity extends AppCompatActivity {
         String comS = "";
         String conS = "";
         Vector<Location> locs = new Vector<Location>();
-        //if their location is checked
-        if (cb_mylocation.isChecked())
+        //if their location is checked and location isn't null
+        if (cb_mylocation.isChecked() && !(Objects.isNull(myLoc)))
         {
-            //if we don't have location permission ................. that sucks
-            //TODO: what do we do if they say no? also listen to the todo inside that function \v
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-            {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-
-                String[] permissions = new String[1];
-                permissions[0] = Manifest.permission.ACCESS_FINE_LOCATION;
-                ActivityCompat.requestPermissions(this, permissions, 1);
-                System.out.println("Requesting permissions...");
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            else
-            {
-                Task<Location> mylocTask = fusedLocationClient.getLastLocation();
-                Location myLoc = mylocTask.getResult();
-                //add their location
-                locs.add(myLoc);
-            }
-
+            locs.add(myLoc);
         }
+        //otherwise no location
 
 
         //MEMORIAL CONSTRUCTOR:
@@ -144,7 +176,12 @@ public class CreateMemorialActivity extends AppCompatActivity {
         //Vector< Location > locs)
         //TODO: maybe location CAN be empty? it won't be searchable but thats okay
         Memorial myMem = new Memorial(n, by, dy, e, d, comS, conS, locs);
-
         //todo: make memorial object, next page after making memorial (confirmation that gives code)
+
+
+        //Start MemorialConfirmActivity
+        Intent intent = new Intent(this, MemorialConfirmActivity.class);
+        startActivity(intent);
+
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MemorialConfirmActivity">
+    tools:context=".activities.MemorialConfirmActivity"
+    android:id="@+id/activity_memorial_confirm">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -235,7 +235,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/nocomments"
-                        android:checked="true"/>
+                        android:checked="false"/>
 
                     <RadioButton
                         android:id="@+id/rb_myApproval"
@@ -282,7 +282,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/nocontributions"
-                        android:checked="true"/>
+                        android:checked="false"/>
 
                     <RadioButton
                         android:id="@+id/rb_myApprovalcontributions"
@@ -316,36 +316,23 @@
                 <CheckBox
                     android:id="@+id/cb_mylocation"
                     style="@style/textStyle"
-                    android:fontFamily="@font/avenir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir"
                     android:text="@string/usemine"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
-                <EditText
-                    android:id="@+id/et_location"
-                    style="@style/textStyle"
-                    android:fontFamily="@font/avenir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:hint="@string/entercity"
-                    android:inputType="textMultiLine"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cb_mylocation" />
-
                 <Button
                     android:id="@+id/button"
                     style="@style/buttonStyle"
-                    android:fontFamily="@font/avenir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir"
                     android:onClick="onClickCreateMemorial"
                     android:text="@string/creatememorial"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_location"/>
+                    app:layout_constraintTop_toBottomOf="@+id/cb_mylocation" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
