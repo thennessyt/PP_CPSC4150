@@ -180,7 +180,7 @@ public class CreateMemorialActivity extends AppCompatActivity {
 
 
         //Start MemorialConfirmActivity
-        Intent intent = new Intent(this, MemorialConfirmActivity.class);
+        Intent intent = new Intent(this, MemorialViewActivity.class);
         startActivity(intent);
 
     }
