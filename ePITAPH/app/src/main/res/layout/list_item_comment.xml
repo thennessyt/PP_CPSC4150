@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="Teresa Chen"/>
+        android:text=""/>
 
     <TextView
         android:id="@+id/commentText"
@@ -23,7 +23,7 @@
         android:fontFamily="@font/avenir"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/commentAccount"
-        android:text="My comment!"/>
+        android:text=""/>
 
     <Button
         android:id="@+id/commentLikeButton"
@@ -32,7 +32,7 @@
         style="@style/buttonStyle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Like"
+        android:text="@string/like"
         android:onClick="onLikeClick"/>
 
     <Button
@@ -42,7 +42,7 @@
         style="@style/buttonStyle"
         app:layout_constraintTop_toBottomOf="@id/commentLikeButton"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="Report"
+        android:text="@string/report"
         android:onClick="onReportClick"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

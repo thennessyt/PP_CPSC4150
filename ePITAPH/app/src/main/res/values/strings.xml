@@ -46,4 +46,6 @@
     <string name="go_to_memorial">Go To Memorial</string>
     <string name="your_comment_text">Your comment text...</string>
     <string name="copy_memorial_id">Copy Memorial ID</string>
+    <string name="like">Like</string>
+    <string name="report">Report</string>
 </resources>

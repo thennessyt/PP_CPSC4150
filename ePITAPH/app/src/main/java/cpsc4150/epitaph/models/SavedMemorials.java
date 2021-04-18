@@ -25,10 +25,10 @@ public class SavedMemorials
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "memorialID")
-    protected int memorialID;
+    public int memorialID;
 
-    @PrimaryKey()
+    @PrimaryKey
     @NonNull
     @ColumnInfo(name = "accountID")
-    protected int accountID;
+    public int accountID;
 }
