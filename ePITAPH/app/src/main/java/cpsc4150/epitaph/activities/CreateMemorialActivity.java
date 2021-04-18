@@ -17,23 +17,20 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import android.location.*;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.Objects;
 import java.util.Vector;
 
+import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.fragments.CreateMemorialFragment;
 import cpsc4150.epitaph.R;
+import cpsc4150.epitaph.models.Comment;
 import cpsc4150.epitaph.models.Memorial;
 
 public class CreateMemorialActivity extends AppCompatActivity
@@ -41,6 +38,8 @@ public class CreateMemorialActivity extends AppCompatActivity
     private FusedLocationProviderClient fusedLocationClient;
 
     Location myLoc = null;
+
+    private EpitaphDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,6 +49,9 @@ public class CreateMemorialActivity extends AppCompatActivity
 
         //location thing
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        //Initialize database
+        db = EpitaphDatabase.getInstance(getApplicationContext());
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.activity_create_memorial);
@@ -171,9 +173,13 @@ public class CreateMemorialActivity extends AppCompatActivity
         Memorial myMem = new Memorial(n, by, dy, e, d, comS, conS, locs);
         //todo: make memorial object, next page after making memorial (confirmation that gives code)
 
+        //Add memorial to database
+        db.memorialDao().insertMemorial(myMem);
+        Toast.makeText(this, "Memorial created!", Toast.LENGTH_LONG).show();
 
-        //Start MemorialConfirmActivity
+        //Start MemorialViewActivity
         Intent intent = new Intent(this, MemorialViewActivity.class);
+        intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, myMem.getId());
         startActivity(intent);
 
     }
