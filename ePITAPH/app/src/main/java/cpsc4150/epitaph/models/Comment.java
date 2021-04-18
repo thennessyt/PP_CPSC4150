@@ -17,9 +17,11 @@ import static androidx.room.ForeignKey.CASCADE;
 public class Comment extends Contribution
 {
     //TODO: erroring because it inherits an ID from contribution: do we remove this one?
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    protected int id;
+    //@PrimaryKey(autoGenerate = true)
+    //@ColumnInfo(name = "c_id")
+    //protected int c_id;
+
+    protected int contributionID;
 
     @NonNull
     @ColumnInfo(name = "likes")

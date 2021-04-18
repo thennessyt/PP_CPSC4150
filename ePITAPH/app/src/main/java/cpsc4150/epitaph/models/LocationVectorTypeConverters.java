@@ -31,7 +31,7 @@ public class LocationVectorTypeConverters
     }
 
     @TypeConverter
-    public static String someObjectListToString(Vector<Location> locationsVector)
+    public static String locationsVectorToString(Vector<Location> locationsVector)
     {
         Gson gson = new Gson();
         return gson.toJson(locationsVector);

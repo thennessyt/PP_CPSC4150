@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -29,11 +30,11 @@ public class Contribution
     protected int id;
 
     @NonNull
-    @ColumnInfo(name = "memorial_id")
+    @ColumnInfo(name = "memorialID")
     protected int memorialID;
 
     @NonNull
-    @ColumnInfo(name = "account_id")
+    @ColumnInfo(name = "accountID")
     protected int accountID;
 
     @NonNull
@@ -41,6 +42,7 @@ public class Contribution
     protected String status;
 
     @NonNull
+    @TypeConverters(DateTimeTypeConverters.class)
     @ColumnInfo(name = "datetime")
     protected LocalDateTime datetime;
 }

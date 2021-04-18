@@ -65,8 +65,8 @@ public class Memorial
     }
 
     //TODO: pre/post, actual most of this cosntructor
-    Memorial(String n, int by, int dy, String e, String d, String comS, String conS,
-             Vector<Location> locs)
+    public Memorial(String n, int by, int dy, String e, String d, String comS, String conS,
+                    Vector<Location> locs)
     {
         name = n;
         byear = by;
