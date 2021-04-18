@@ -29,10 +29,9 @@ public class SavedMemorials
 
     @NonNull
     @ColumnInfo(name = "memorialID")
-    protected int memorialID;
-
+    public int memorialID;
 
     @NonNull
     @ColumnInfo(name = "accountID")
-    protected int accountID;
+    public int accountID;
 }

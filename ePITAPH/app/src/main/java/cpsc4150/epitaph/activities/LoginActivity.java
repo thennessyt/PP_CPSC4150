@@ -27,7 +27,8 @@ import cpsc4150.epitaph.models.Account;
 //DOCUMENTATION USED: https://developers.google.com/identity/sign-in/android/sign-in?authuser=5
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity
+{
 
 
     private EpitaphDatabase db;
@@ -37,7 +38,8 @@ public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 9001;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -64,7 +66,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
+    protected void onStart()
+    {
         super.onStart();
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
@@ -80,21 +83,25 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void onSignInClick(View v){
+    public void onSignInClick(View v)
+    {
         signIn();
     }
 
-    private void signIn() {
+    private void signIn()
+    {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == RC_SIGN_IN)
+        {
             // The Task returned from this call is always completed, no need to attach
             // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -104,16 +111,20 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //this is where they sign in
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask)
+    {
+        try
+        {
             GoogleSignInAccount gaccount = completedTask.getResult(ApiException.class);
 
             Account currAccount;
             // Signed in successfully, show authenticated UI.
             //check database for existing account
-            try{
+            try
+            {
                 currAccount = db.accountDao().getAccount(gaccount.getEmail());
-                if (Objects.isNull(currAccount)){
+                if (Objects.isNull(currAccount))
+                {
 
                     currAccount = new Account(gaccount.getGivenName() + " " +
                             gaccount.getFamilyName(), gaccount.getEmail());
@@ -121,7 +132,9 @@ public class LoginActivity extends AppCompatActivity {
                     db.accountDao().insertAccount(currAccount);
 
                 }
-            } catch (Exception e){
+            }
+            catch (Exception e)
+            {
 
                 currAccount = new Account(gaccount.getGivenName() + " " +
                         gaccount.getFamilyName(), gaccount.getEmail());
@@ -136,7 +149,9 @@ public class LoginActivity extends AppCompatActivity {
             intent.putExtra(Account.EXTRA_ACCOUNT_ID, currAccount.getId());
             startActivity(intent);
             //TODO: move to opening menu with account
-        } catch (ApiException e) {
+        }
+        catch (ApiException e)
+        {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             System.out.println("signInResult:failed code=" + e.getStatusCode());

@@ -15,8 +15,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
+import cpsc4150.epitaph.activities.MemorialViewActivity;
+import cpsc4150.epitaph.models.Account;
 import cpsc4150.epitaph.models.Memorial;
+import cpsc4150.epitaph.models.SavedMemorials;
 
 public class SavedMemorialsFragment extends Fragment
 {
@@ -59,11 +63,16 @@ public class SavedMemorialsFragment extends Fragment
 
     // Reference to the activity
     private SavedMemorialsFragment.OnMemorialSelectedListener mListener;
+    private EpitaphDatabase db;
+    private int accountID;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        db = EpitaphDatabase.getInstance(getActivity().getApplicationContext());
+        Bundle extra = getActivity().getIntent().getExtras();
+        accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
     }
 
     @Override
@@ -77,9 +86,14 @@ public class SavedMemorialsFragment extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         // Send memorials to recycler view
-        //TODO: GET SAVED MEMORIALS FROM ACCOUNT
-        List<Memorial> list = new ArrayList<>();
-        MemorialAdapter adapter = new MemorialAdapter(list);
+        List<SavedMemorials> list = db.savedMemorialsDao().getSavedMemorials(accountID);
+        List<Memorial> memorialList = new ArrayList<>();
+        for(int i = 0; i < list.size(); i++)
+        {
+            Memorial memorial = db.memorialDao().getMemorial(list.get(i).memorialID);
+            memorialList.add(memorial);
+        }
+        MemorialAdapter adapter = new MemorialAdapter(memorialList);
         recyclerView.setAdapter(adapter);
 
         return view;
