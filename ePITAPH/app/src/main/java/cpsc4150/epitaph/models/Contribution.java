@@ -27,24 +27,30 @@ public class Contribution
 {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    protected int id;
+    public int id;
 
     @NonNull
     @ColumnInfo(name = "memorialID")
-    protected int memorialID;
+    public int memorialID;
 
     @NonNull
     @ColumnInfo(name = "accountID")
-    protected int accountID;
+    public int accountID;
 
     @NonNull
     @ColumnInfo(name = "status")
-    protected String status;
+    public String status;
 
     @NonNull
     @TypeConverters(DateTimeTypeConverters.class)
     @ColumnInfo(name = "datetime")
-    protected LocalDateTime datetime;
+    public LocalDateTime datetime;
+
+    //compiler demands an empty one
+    public Contribution()
+    {
+
+    }
 
     public Contribution(Contribution contribution)
     {
@@ -61,5 +67,32 @@ public class Contribution
         this.accountID = accountID;
         this.status = status;
         this.datetime = dt;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public int getAccountID()
+    {
+        return accountID;
+    }
+
+    public int getMemorialID()
+    {
+        return memorialID;
+    }
+
+    @NonNull
+    public LocalDateTime getDatetime()
+    {
+        return datetime;
+    }
+
+    @NonNull
+    public String getStatus()
+    {
+        return status;
     }
 }

@@ -99,11 +99,11 @@ public class CreateMemorialActivity extends AppCompatActivity {
         //TODO: edit text of location? is there a location library we can bring up that looks
         //TODO: up city names? im tired
 
-        String n = et_name.toString();
-        int by = Integer.parseInt(et_birthyear.toString());
-        int dy = Integer.parseInt(et_deathyear.toString());
-        String e = et_epitaph.toString();
-        String d = et_description.toString();
+        String n = et_name.getText().toString();
+        int by = Integer.parseInt(et_birthyear.getText().toString());
+        int dy = Integer.parseInt(et_deathyear.getText().toString());
+        String e = et_epitaph.getText().toString();
+        String d = et_description.getText().toString();
         String comS = "";
         String conS = "";
         Vector<Location> locs = new Vector<Location>();
@@ -116,6 +116,11 @@ public class CreateMemorialActivity extends AppCompatActivity {
             {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions
+
+                String[] permissions = new String[1];
+                permissions[0] = Manifest.permission.ACCESS_FINE_LOCATION;
+                ActivityCompat.requestPermissions(this, permissions, 1);
+                System.out.println("Requesting permissions...");
                 // here to request the missing permissions, and then overriding
                 //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
                 //                                          int[] grantResults)

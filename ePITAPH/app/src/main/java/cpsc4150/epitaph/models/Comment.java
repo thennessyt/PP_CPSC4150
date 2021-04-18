@@ -18,19 +18,22 @@ public class Comment
 {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    protected int id;
+    public int id;
 
     @NonNull
     @ColumnInfo(name = "likes")
-    protected int likes;
+    public int likes;
 
     @NonNull
     @ColumnInfo(name = "text")
-    protected String text;
+    public String text;
 
     @NonNull
     @ColumnInfo(name = "account_id")
-    protected int accountID;
+    public int accountID;
+
+    //compiler demands it
+    public int contributionID;
 
     public Comment(String text)
     {
