@@ -22,12 +22,16 @@ import static androidx.room.ForeignKey.CASCADE;
                 onDelete = CASCADE)})
 public class SavedMemorials
 {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    @ColumnInfo(name = "id")
+    protected int id;
+
     @NonNull
     @ColumnInfo(name = "memorialID")
     protected int memorialID;
 
-    @PrimaryKey()
+
     @NonNull
     @ColumnInfo(name = "accountID")
     protected int accountID;
