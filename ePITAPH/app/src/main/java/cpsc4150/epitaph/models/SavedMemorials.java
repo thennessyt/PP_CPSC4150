@@ -25,7 +25,7 @@ public class SavedMemorials
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id")
-    protected int id;
+    public int id;
 
     @NonNull
     @ColumnInfo(name = "memorialID")
