@@ -11,7 +11,7 @@ import cpsc4150.epitaph.models.Comment;
 @Dao
 public interface CommentDao
 {
-    @Query("SELECT * FROM Comment WHERE contributionID = :id")
+    @Query("SELECT * FROM Comment WHERE id = :id")
     public Comment getComment(int id);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
