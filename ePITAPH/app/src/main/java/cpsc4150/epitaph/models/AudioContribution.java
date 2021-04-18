@@ -1,6 +1,8 @@
 package cpsc4150.epitaph.models;
 
+import android.graphics.Bitmap;
 import android.media.MediaPlayer;
+import android.provider.MediaStore;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -40,4 +42,11 @@ public class AudioContribution
     @NonNull
     @ColumnInfo(name = "memorial_id")
     public int memorialID;
+
+    public AudioContribution(MediaPlayer audio, int accountID, int memorialID)
+    {
+        this.audio = audio;
+        this.accountID = accountID;
+        this.memorialID = memorialID;
+    }
 }

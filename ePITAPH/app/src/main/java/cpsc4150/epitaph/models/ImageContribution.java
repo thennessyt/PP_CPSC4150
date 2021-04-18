@@ -42,4 +42,11 @@ public class ImageContribution
     @NonNull
     @ColumnInfo(name = "memorial_id")
     public int memorialID;
+
+    public ImageContribution(Bitmap image, int accountID, int memorialID)
+    {
+        this.image = image;
+        this.accountID = accountID;
+        this.memorialID = memorialID;
+    }
 }
