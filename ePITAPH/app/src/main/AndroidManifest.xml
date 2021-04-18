@@ -18,7 +18,6 @@
         <activity android:name=".activities.VisitMenuActivity" />
         <activity android:name=".activities.CodeMemorialActivity" />
         <activity android:name=".activities.SavedMemorialsActivity" />
-        <activity android:name=".activities.LocalMemorialsActivity" />
         <activity android:name=".activities.OpeningMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

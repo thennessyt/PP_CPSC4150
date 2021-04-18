@@ -26,21 +26,9 @@
         app:layout_constraintTop_toBottomOf="@id/savedMemorialsButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/localMemorialsButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/enter_memorial_code"
         android:onClick="onEnterClick"
-        />
-
-    <Button
-        android:id="@+id/localMemorialsButton"
-        style="@style/buttonStyle"
-        android:fontFamily="@font/avenir"
-        app:layout_constraintTop_toBottomOf="@id/memorialCodeButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="@string/browse_local_memorials"
-        android:onClick="onLocalClick"
         />
 
 
