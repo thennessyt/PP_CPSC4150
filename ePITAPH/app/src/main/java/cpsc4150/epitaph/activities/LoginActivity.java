@@ -1,3 +1,10 @@
+/*
+    Teresa Chen - C80914941 - tlchen@g.clemson.edu
+    Taylor Hennessey - C64479320 - tthenne@g.clemson.edu
+
+    Code adapted from Zybooks
+ */
+
 package cpsc4150.epitaph.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,14 +30,10 @@ import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.fragments.OpeningMenuFragment;
 import cpsc4150.epitaph.models.Account;
 
-
 //DOCUMENTATION USED: https://developers.google.com/identity/sign-in/android/sign-in?authuser=5
-
 
 public class LoginActivity extends AppCompatActivity
 {
-
-
     private EpitaphDatabase db;
 
     GoogleSignInClient mGoogleSignInClient;

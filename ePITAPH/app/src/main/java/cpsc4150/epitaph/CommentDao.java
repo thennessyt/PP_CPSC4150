@@ -1,5 +1,11 @@
-package cpsc4150.epitaph;
+/*
+    Teresa Chen - C80914941 - tlchen@g.clemson.edu
+    Taylor Hennessey - C64479320 - tthenne@g.clemson.edu
 
+    Code adapted from Zybooks
+ */
+
+package cpsc4150.epitaph;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
