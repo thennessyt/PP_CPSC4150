@@ -1,10 +1,13 @@
 package cpsc4150.epitaph.models;
 
+import android.graphics.Bitmap;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import java.io.File;
 
@@ -24,8 +27,9 @@ public class ImageContribution
     protected int id;
 
     @NonNull
+    @TypeConverters(ImageTypeConverters.class)
     @ColumnInfo(name = "image")
-    protected File image;
+    protected Bitmap image;
 
     @NonNull
     @ColumnInfo(name = "account_id")
