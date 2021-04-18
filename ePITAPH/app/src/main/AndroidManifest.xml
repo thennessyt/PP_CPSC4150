@@ -13,19 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPITAPH">
-        <activity android:name=".activities.LoginActivity"></activity>
-        <activity android:name=".activities.MemorialViewActivity" />
-        <activity android:name=".activities.CreateMemorialActivity" />
-        <activity android:name=".activities.VisitMenuActivity" />
-        <activity android:name=".activities.CodeMemorialActivity" />
-        <activity android:name=".activities.SavedMemorialsActivity" />
-        <activity android:name=".activities.OpeningMenuActivity">
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MemorialViewActivity" />
+        <activity android:name=".activities.CreateMemorialActivity" />
+        <activity android:name=".activities.VisitMenuActivity" />
+        <activity android:name=".activities.CodeMemorialActivity" />
+        <activity android:name=".activities.SavedMemorialsActivity" />
+        <activity android:name=".activities.OpeningMenuActivity" />
     </application>
 
 </manifest>
