@@ -18,15 +18,19 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.Objects;
 
+import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.fragments.OpeningMenuFragment;
-
+import cpsc4150.epitaph.models.Account;
 
 
 //DOCUMENTATION USED: https://developers.google.com/identity/sign-in/android/sign-in?authuser=5
 
 
 public class LoginActivity extends AppCompatActivity {
+
+
+    private EpitaphDatabase db;
 
     GoogleSignInClient mGoogleSignInClient;
     //sign in request code
@@ -69,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             //Start Opening Menu Activity
             //TODO: move to opening menu with account
             Intent intent = new Intent(this, OpeningMenuActivity.class);
+            intent.putExtra(Account.EXTRA_ACCOUNT_ID, //TODO: get the right integer from the database);
             startActivity(intent);
         }
     }

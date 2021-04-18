@@ -13,6 +13,7 @@ import cpsc4150.epitaph.R;
 
 public class OpeningMenuActivity extends AppCompatActivity
 {
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
