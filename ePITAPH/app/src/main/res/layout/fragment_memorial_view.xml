@@ -10,13 +10,25 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp">
 
+    <Button
+        android:id="@+id/copyMemorialIDButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/buttonStyle"
+        android:fontFamily="@font/avenir"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/copy_memorial_id"
+        android:onClick="onCopyClick"/>
+
     <ImageView
         android:id="@+id/memorialImage"
         android:layout_width="375dp"
         android:layout_height="375dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/copyMemorialIDButton"/>
 
     <TextView
         android:id="@+id/memorialEpitaph"
