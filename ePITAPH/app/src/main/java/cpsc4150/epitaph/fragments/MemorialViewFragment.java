@@ -25,7 +25,6 @@ public class MemorialViewFragment extends Fragment
     private TextView memorialDescription;
     private EpitaphDatabase db;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
