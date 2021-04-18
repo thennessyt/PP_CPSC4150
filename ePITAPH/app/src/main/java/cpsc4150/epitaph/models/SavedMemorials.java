@@ -6,28 +6,29 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import java.io.File;
-
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(foreignKeys = {
         @ForeignKey(
+                entity = Memorial.class,
+                parentColumns = "id",
+                childColumns = "memorialID",
+                onDelete = CASCADE),
+
+        @ForeignKey(
                 entity = Account.class,
                 parentColumns = "id",
-                childColumns = "contributionID",
+                childColumns = "accountID",
                 onDelete = CASCADE)})
-public class ImageContribution
+public class SavedMemorials
 {
-    @NonNull
     @PrimaryKey
-    @ColumnInfo(name = "id")
-    protected int id;
-
     @NonNull
-    @ColumnInfo(name = "image")
-    protected File image;
+    @ColumnInfo(name = "memorialID")
+    protected int memorialID;
 
+    @PrimaryKey()
     @NonNull
-    @ColumnInfo(name = "account_id")
+    @ColumnInfo(name = "accountID")
     protected int accountID;
 }

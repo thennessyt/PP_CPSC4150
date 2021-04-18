@@ -16,6 +16,8 @@ public abstract class EpitaphDatabase extends RoomDatabase
 {
     private static final String DATABASE_NAME = "epitaph.db";
     private static EpitaphDatabase mEpitaphDatabase;
+    public abstract MemorialDao memorialDao();
+    public abstract CommentDao commentDao();
 
     // Singleton
     public static EpitaphDatabase getInstance(Context context)

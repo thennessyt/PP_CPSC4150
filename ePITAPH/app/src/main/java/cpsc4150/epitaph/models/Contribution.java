@@ -45,4 +45,21 @@ public class Contribution
     @TypeConverters(DateTimeTypeConverters.class)
     @ColumnInfo(name = "datetime")
     protected LocalDateTime datetime;
+
+    public Contribution(Contribution contribution)
+    {
+        this.id = contribution.id;
+        this.memorialID = contribution.memorialID;
+        this.accountID = contribution.accountID;
+        this.status = contribution.status;
+        this.datetime = contribution.datetime;
+    }
+
+    public Contribution(int memorialID, int accountID, String status, LocalDateTime dt)
+    {
+        this.memorialID = memorialID;
+        this.accountID = accountID;
+        this.status = status;
+        this.datetime = dt;
+    }
 }

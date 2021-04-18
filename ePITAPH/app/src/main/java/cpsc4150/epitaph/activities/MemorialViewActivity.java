@@ -11,6 +11,7 @@ import cpsc4150.epitaph.R;
 
 public class MemorialViewActivity extends AppCompatActivity
 {
+    public static final String EXTRA_MEMORIAL_ID = "cpsc4150.epitaph.memorial_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

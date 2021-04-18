@@ -1,16 +1,57 @@
 package cpsc4150.epitaph.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import java.time.LocalDateTime;
+
+import cpsc4150.epitaph.ContributionDao;
+import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
+import cpsc4150.epitaph.fragments.CodeMemorialFragment;
+import cpsc4150.epitaph.fragments.CreateCommentFragment;
+import cpsc4150.epitaph.models.Comment;
+import cpsc4150.epitaph.models.Contribution;
 
-public class CreateCommentActivity extends AppCompatActivity {
+public class CreateCommentActivity extends AppCompatActivity
+{
+    private EditText commentEditText;
+    private EpitaphDatabase db;
+    private int memorialID;
+    private int accountID;
+    private String status;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_comment);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = fragmentManager.findFragmentById(R.id.activity_create_comment);
+
+        if (fragment == null)
+        {
+            fragment = new CreateCommentFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.activity_create_comment, fragment)
+                    .commit();
+        }
+
+        db = EpitaphDatabase.getInstance(getApplicationContext());
+        commentEditText = findViewById(R.id.et_comment);
+    }
+
+    public void onCreateCommentClick(View view)
+    {
+        Comment comment = new Comment(commentEditText.getText().toString());
+        db.commentDao().insertComment(comment);
+        Toast.makeText(this, "Comment created!", Toast.LENGTH_LONG).show();
     }
 }

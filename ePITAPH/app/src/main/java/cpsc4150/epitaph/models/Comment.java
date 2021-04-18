@@ -10,18 +10,15 @@ import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(foreignKeys = {
         @ForeignKey(
-                entity = Contribution.class,
+                entity = Account.class,
                 parentColumns = "id",
                 childColumns = "contributionID",
                 onDelete = CASCADE)})
-public class Comment extends Contribution
+public class Comment
 {
-    //TODO: erroring because it inherits an ID from contribution: do we remove this one?
-    //@PrimaryKey(autoGenerate = true)
-    //@ColumnInfo(name = "c_id")
-    //protected int c_id;
-
-    protected int contributionID;
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    protected int id;
 
     @NonNull
     @ColumnInfo(name = "likes")
@@ -31,9 +28,23 @@ public class Comment extends Contribution
     @ColumnInfo(name = "text")
     protected String text;
 
-    Comment(String text)
+    @NonNull
+    @ColumnInfo(name = "account_id")
+    protected int accountID;
+
+    public Comment(String text)
     {
         this.text = text;
         this.likes = 0;
+    }
+
+    public void like()
+    {
+        this.likes++;
+    }
+
+    public void unlike()
+    {
+        this.likes--;
     }
 }

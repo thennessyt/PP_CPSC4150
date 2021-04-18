@@ -13,7 +13,6 @@ import cpsc4150.epitaph.fragments.VisitMenuFragment;
 
 public class VisitMenuActivity extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

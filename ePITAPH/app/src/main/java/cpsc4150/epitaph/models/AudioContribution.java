@@ -6,23 +6,28 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(foreignKeys = {
         @ForeignKey(
-                entity = Contribution.class,
+                entity = Account.class,
                 parentColumns = "id",
                 childColumns = "contributionID",
                 onDelete = CASCADE)})
 public class AudioContribution
 {
     @NonNull
-    @ColumnInfo(name = "contribution_id")
-    protected int contributionID;
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    protected int id;
 
     @NonNull
     @ColumnInfo(name = "audio")
     protected MediaPlayer audio;
 
+    @NonNull
+    @ColumnInfo(name = "account_id")
+    protected int accountID;
 }
