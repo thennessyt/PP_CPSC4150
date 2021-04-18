@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_memorial_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_mid">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
+
+    <Button
+        android:id="@+id/copyMemorialIDButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/buttonStyle"
+        android:fontFamily="@font/avenir"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/copy_memorial_id"
+        android:onClick="onCopyClick"/>
+
+    <ImageView
+        android:id="@+id/memorialImage"
+        android:layout_width="375dp"
+        android:layout_height="375dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/copyMemorialIDButton"/>
+
+    <TextView
+        android:id="@+id/memorialEpitaph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/headerStyle"
+        android:fontFamily="@font/avenir"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/memorialImage"
+        android:text="In Loving Memory"
+        android:textStyle="bold|italic"/>
+
+    <TextView
+        android:id="@+id/memorialName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/headerStyle"
+        android:fontFamily="@font/avenir"
+        app:layout_constraintTop_toBottomOf="@id/memorialEpitaph"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Unknown"
+        android:paddingBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/memorialDateRange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textStyle"
+        android:fontFamily="@font/avenir"
+        app:layout_constraintTop_toBottomOf="@id/memorialName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Unknown - Unknown"
+        android:textStyle="italic"
+        android:paddingBottom="15dp"/>
+
+    <TextView
+        android:id="@+id/memorialDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/textStyle"
+        android:fontFamily="@font/avenir"
+        app:layout_constraintTop_toBottomOf="@id/memorialDateRange"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Dearly missed."/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_dark"
+            android:onClick="addButtonClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/add_icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_memorial_view_comments">
+    </view>
+
+</ScrollView>
+
+
+

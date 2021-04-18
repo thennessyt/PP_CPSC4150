@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_mid"
+    android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
+    tools:context=".activities.CreateMemorialActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    style="@style/textStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/entername"
+                    android:inputType="textPersonName"
+                    app:layout_constraintStart_toStartOf="@+id/tv_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+                <TextView
+                    android:id="@+id/tv_years"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/years"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_name" />
+
+                <EditText
+                    android:id="@+id/et_birthyear"
+                    style="@style/textStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="150dp"
+                    android:editable="true"
+                    android:ems="10"
+                    android:fontFamily="@font/avenir"
+                    android:hint="@string/birthyear"
+                    android:inputType="number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_years" />
+
+                <EditText
+                    android:id="@+id/et_deathyear"
+                    style="@style/textStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="150dp"
+                    android:editable="true"
+                    android:ems="10"
+                    android:fontFamily="@font/avenir"
+                    android:hint="@string/deathyear"
+                    android:inputType="number"
+                    app:layout_constraintStart_toEndOf="@+id/et_birthyear"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_years" />
+
+                <TextView
+                    android:id="@+id/tv_epitaph"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/epitaph"
+                    app:layout_constraintStart_toStartOf="@+id/et_name"
+                    app:layout_constraintTop_toBottomOf="@+id/et_deathyear" />
+
+                <EditText
+                    android:id="@+id/et_epitaph"
+                    style="@style/textStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/enterepitaph"
+                    android:inputType="textMultiLine"
+                    app:layout_constraintStart_toStartOf="@+id/et_description"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_epitaph" />
+
+                <TextView
+                    android:id="@+id/tv_description"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    app:layout_constraintStart_toStartOf="@+id/tv_epitaph"
+                    app:layout_constraintTop_toBottomOf="@+id/et_epitaph" />
+
+                <EditText
+                    android:id="@+id/et_description"
+                    style="@style/textStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/enterdesc"
+                    android:inputType="textMultiLine"
+                    app:layout_constraintStart_toStartOf="@+id/tv_description"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+                <TextView
+                    android:id="@+id/tv_memorialimage"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mainimage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_description" />
+
+                <ImageButton
+                    android:id="@+id/ib_memorialimage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_memorialimage"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/tv_commentpermissions"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commentpermissions"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ib_memorialimage"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_commentpermissions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_commentpermissions">
+
+                    <RadioButton
+                        android:id="@+id/rb_nocomments"
+                        style="@style/textStyle"
+                        android:fontFamily="@font/avenir"
+                        app:buttonTint="@color/purple_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nocomments"
+                        android:checked="false"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_open"
+                        style="@style/textStyle"
+                        android:fontFamily="@font/avenir"
+                        app:buttonTint="@color/purple_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/open" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_contributionpermissions"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/commentpermissions"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rg_commentpermissions"
+                    tools:text="@string/contributionpermissions" />
+
+                <RadioGroup
+                    android:id="@+id/rg_contributionpermissions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_contributionpermissions">
+
+                    <RadioButton
+                        android:id="@+id/rb_nocontributions"
+                        style="@style/textStyle"
+                        android:fontFamily="@font/avenir"
+                        app:buttonTint="@color/purple_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nocontributions"
+                        android:checked="false"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_opencontributions"
+                        style="@style/textStyle"
+                        android:fontFamily="@font/avenir"
+                        app:buttonTint="@color/purple_dark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/open" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    style="@style/headerStyle"
+                    android:fontFamily="@font/avenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rg_contributionpermissions" />
+
+                <CheckBox
+                    android:id="@+id/cb_mylocation"
+                    style="@style/textStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir"
+                    android:text="@string/usemine"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_location" />
+
+                <Button
+                    android:id="@+id/button"
+                    style="@style/buttonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir"
+                    android:onClick="onClickCreateMemorial"
+                    android:text="@string/creatememorial"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cb_mylocation" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
