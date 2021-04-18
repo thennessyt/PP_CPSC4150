@@ -42,12 +42,21 @@ public class Comment
     @ColumnInfo(name = "memorial_id")
     public int memorialID;
 
+    @NonNull
+    @ColumnInfo(name = "report")
+    public int report;
+
+    @NonNull
+    @ColumnInfo(name = "visible")
+    public boolean visible;
+
     public Comment(String text, int accountID, int memorialID)
     {
         this.text = text;
         this.likes = 0;
         this.accountID = accountID;
         this.memorialID = memorialID;
+        this.report = 0;
     }
 
     public void like()
@@ -58,5 +67,15 @@ public class Comment
     public void unlike()
     {
         this.likes--;
+    }
+
+    public void report()
+    {
+        this.report++;
+    }
+
+    public void setVisible(boolean visible)
+    {
+        this.visible = visible;
     }
 }

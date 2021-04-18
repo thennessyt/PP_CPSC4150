@@ -1,8 +1,11 @@
 package cpsc4150.epitaph.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.activities.MemorialViewActivity;
+import cpsc4150.epitaph.models.Account;
+import cpsc4150.epitaph.models.Comment;
 import cpsc4150.epitaph.models.Memorial;
 
 public class MemorialViewFragment extends Fragment
@@ -60,6 +68,77 @@ public class MemorialViewFragment extends Fragment
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_memorial_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_memorial_view, container, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.fragment_memorial_view_comments);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        // Send comments to recycler view
+        List<Comment> list = db.commentDao().getCommentsByMemorialID(memorialID);
+        MemorialViewFragment.CommentAdapter adapter = new MemorialViewFragment.CommentAdapter(list);
+        recyclerView.setAdapter(adapter);
+
+        return view;
+    }
+
+    private class CommentHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener
+    {
+        private Comment comment;
+
+        private TextView commentAccount;
+        private TextView commentText;
+
+        public CommentHolder(LayoutInflater inflater, ViewGroup parent)
+        {
+            super(inflater.inflate(R.layout.list_item_comment, parent, false));
+            itemView.setOnClickListener(this);
+            commentAccount = itemView.findViewById(R.id.commentAccount);
+            commentText = itemView.findViewById(R.id.commentText);
+        }
+
+        public void bind(Comment comment)
+        {
+            Account account = db.accountDao().getAccount(comment.accountID);
+            this.comment = comment;
+            commentAccount.setText(account.getName());
+            commentText.setText(comment.text);
+        }
+
+        @Override
+        public void onClick(View view)
+        {
+
+        }
+    }
+
+    private class CommentAdapter extends RecyclerView.Adapter<MemorialViewFragment.CommentHolder>
+    {
+        private List<Comment> comments;
+
+        public CommentAdapter(List<Comment> comments)
+        {
+            this.comments = comments;
+        }
+
+        @Override
+        public MemorialViewFragment.CommentHolder onCreateViewHolder(ViewGroup parent, int viewType)
+        {
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            return new MemorialViewFragment.CommentHolder(layoutInflater, parent);
+        }
+
+        @Override
+        public void onBindViewHolder(MemorialViewFragment.CommentHolder holder, int position)
+        {
+            Comment comment = comments.get(position);
+            holder.bind(comment);
+        }
+
+        @Override
+        public int getItemCount()
+        {
+            return comments.size();
+        }
     }
 }

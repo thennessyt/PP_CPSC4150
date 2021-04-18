@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="John Doe"/>
+        android:text=""/>
 
     <TextView
         android:id="@+id/memorialItemRange"
@@ -23,7 +22,7 @@
         android:paddingLeft="15dp"
         app:layout_constraintLeft_toRightOf="@id/memorialItemName"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="1999 - 2021" />
+        android:text="" />
 
     <TextView
         android:id="@+id/memorialItemLocation"
@@ -31,6 +30,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/memorialItemName"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="Clemson, SC"/>
+        android:text=""/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

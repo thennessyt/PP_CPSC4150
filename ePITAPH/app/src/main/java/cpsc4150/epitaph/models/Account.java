@@ -1,5 +1,6 @@
 package cpsc4150.epitaph.models;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -13,10 +14,19 @@ public class Account
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    protected int id;
+    private int id;
 
     @ColumnInfo(name = "name")
-    protected String name;
+    private String name;
+
+    @NonNull
+    @ColumnInfo(name = "email")
+    private String email;
 
     //google account?
+
+    public String getName()
+    {
+        return name;
+    }
 }

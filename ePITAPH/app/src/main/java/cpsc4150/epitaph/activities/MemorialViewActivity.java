@@ -11,14 +11,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.fragments.MemorialViewFragment;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.models.Account;
+import cpsc4150.epitaph.models.Memorial;
 
 public class MemorialViewActivity extends AppCompatActivity
 {
     public static final String EXTRA_MEMORIAL_ID = "cpsc4150.epitaph.memorial_id";
     private int memorialID;
+    private EpitaphDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +42,7 @@ public class MemorialViewActivity extends AppCompatActivity
 
         Bundle extra = getIntent().getExtras();
         memorialID = extra.getInt(MemorialViewActivity.EXTRA_MEMORIAL_ID);
+        db = EpitaphDatabase.getInstance(getApplicationContext());
     }
 
     public void onCopyClick(View view)

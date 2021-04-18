@@ -44,11 +44,4 @@ public class VisitMenuActivity extends AppCompatActivity
         Intent intent = new Intent(this, CodeMemorialActivity.class);
         startActivity(intent);
     }
-
-    public void onLocalClick(View view)
-    {
-        //Start LocalMemorialsActivity
-        Intent intent = new Intent(this, LocalMemorialsActivity.class);
-        startActivity(intent);
-    }
 }

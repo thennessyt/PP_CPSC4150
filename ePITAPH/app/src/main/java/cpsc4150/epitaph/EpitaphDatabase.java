@@ -19,6 +19,7 @@ public abstract class EpitaphDatabase extends RoomDatabase
     public abstract CommentDao commentDao();
     public abstract ImageContributionDao imageContributionDao();
     public abstract AudioContributionDao audioContributionDao();
+    public abstract AccountDao accountDao();
 
     // Singleton
     public static EpitaphDatabase getInstance(Context context)

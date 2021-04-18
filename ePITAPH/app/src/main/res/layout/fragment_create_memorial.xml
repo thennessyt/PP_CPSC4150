@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue_mid"
     android:paddingLeft="20dp"
+    android:paddingBottom="20dp"
     tools:context=".activities.CreateMemorialActivity">
 
     <ScrollView
@@ -146,26 +147,6 @@
                     tools:src="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/tv_visibility"
-                    style="@style/headerStyle"
-                    android:fontFamily="@font/avenir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/visibility"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ib_memorialimage" />
-
-                <CheckBox
-                    android:id="@+id/cb_private"
-                    style="@style/textStyle"
-                    android:fontFamily="@font/avenir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/keepprivate"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_visibility" />
-
-                <TextView
                     android:id="@+id/tv_commentpermissions"
                     style="@style/headerStyle"
                     android:fontFamily="@font/avenir"
@@ -173,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/commentpermissions"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cb_private" />
+                    app:layout_constraintTop_toBottomOf="@+id/ib_memorialimage"/>
 
                 <RadioGroup
                     android:id="@+id/rg_commentpermissions"

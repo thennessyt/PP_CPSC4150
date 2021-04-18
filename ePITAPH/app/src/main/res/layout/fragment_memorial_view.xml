@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_memorial_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_mid"
-    android:paddingTop="20dp"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:paddingBottom="20dp">
+    android:background="@color/blue_mid">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
 
     <Button
         android:id="@+id/copyMemorialIDButton"
@@ -76,29 +80,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="Dearly missed."/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/purple_dark"
-        android:onClick="addButtonClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:src="@drawable/add_icon" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_dark"
+            android:onClick="addButtonClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/add_icon" />
 
-<!--    And then all the comments.
-        TODO: do we need a scrollview or not?
-        We will almost def need a recycler.-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
+    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_memorial_view_comments">
+    </view>
 
-<!--    </ScrollView>-->
-
-
+</ScrollView>
 
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
