@@ -193,15 +193,6 @@
                         android:checked="false"/>
 
                     <RadioButton
-                        android:id="@+id/rb_myApproval"
-                        style="@style/textStyle"
-                        android:fontFamily="@font/avenir"
-                        app:buttonTint="@color/purple_dark"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/myapproval" />
-
-                    <RadioButton
                         android:id="@+id/rb_open"
                         style="@style/textStyle"
                         android:fontFamily="@font/avenir"
@@ -238,15 +229,6 @@
                         android:layout_height="wrap_content"
                         android:text="@string/nocontributions"
                         android:checked="false"/>
-
-                    <RadioButton
-                        android:id="@+id/rb_myApprovalcontributions"
-                        style="@style/textStyle"
-                        android:fontFamily="@font/avenir"
-                        app:buttonTint="@color/purple_dark"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/myapproval" />
 
                     <RadioButton
                         android:id="@+id/rb_opencontributions"

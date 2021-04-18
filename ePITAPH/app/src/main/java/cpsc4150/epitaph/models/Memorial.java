@@ -48,11 +48,11 @@ public class Memorial
 
     @NonNull
     @ColumnInfo(name = "comment_settings")
-    private String commentSettings;
+    private Boolean commentSettings;
 
     @NonNull
     @ColumnInfo(name = "contribution_settings")
-    private String contributionSettings;
+    private Boolean contributionSettings;
 
     @NonNull
     @TypeConverters(LocationVectorTypeConverters.class)
@@ -66,7 +66,7 @@ public class Memorial
     }
 
     //TODO: pre/post, actual most of this cosntructor
-    public Memorial(String n, int by, int dy, String e, String d, String comS, String conS,
+    public Memorial(String n, int by, int dy, String e, String d, Boolean comS, Boolean conS,
                     Vector<Location> locs)
     {
         name = n;
@@ -95,13 +95,13 @@ public class Memorial
     }
 
     @NonNull
-    public String getCommentSettings()
+    public Boolean getCommentSettings()
     {
         return commentSettings;
     }
 
     @NonNull
-    public String getContributionSettings()
+    public Boolean getContributionSettings()
     {
         return contributionSettings;
     }
@@ -136,7 +136,7 @@ public class Memorial
     }
 
 
-    public void setCommentSettings(@NonNull String commentSettings)
+    public void setCommentSettings(@NonNull Boolean commentSettings)
     {
         this.commentSettings = commentSettings;
     }
@@ -146,7 +146,7 @@ public class Memorial
         this.description = description;
     }
 
-    public void setContributionSettings(@NonNull String contributionSettings)
+    public void setContributionSettings(@NonNull Boolean contributionSettings)
     {
         this.contributionSettings = contributionSettings;
     }

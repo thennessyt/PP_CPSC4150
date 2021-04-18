@@ -119,6 +119,10 @@ public class CreateMemorialActivity extends AppCompatActivity
         EditText et_birthyear = findViewById(R.id.et_birthyear);
         //et_deathyear : death year, 4 digits
         EditText et_deathyear = findViewById(R.id.et_deathyear);
+<<<<<<< Updated upstream
+=======
+        //et_epitaph : memorial tagline
+>>>>>>> Stashed changes
         EditText et_epitaph = findViewById(R.id.et_epitaph);
         //et_description : memorial description
         EditText et_description = findViewById(R.id.et_description);
@@ -155,9 +159,16 @@ public class CreateMemorialActivity extends AppCompatActivity
         int dy = Integer.parseInt(et_deathyear.getText().toString());
         String e = et_epitaph.getText().toString();
         String d = et_description.getText().toString();
+<<<<<<< Updated upstream
         String comS = "";
         String conS = "";
         Vector<Location> locs = new Vector<>();
+=======
+        //TODO: settings for comments
+        Boolean comS = true;
+        Boolean conS = true;
+        Vector<Location> locs = new Vector<Location>();
+>>>>>>> Stashed changes
         //if their location is checked and location isn't null
         if (cb_mylocation.isChecked() && !(Objects.isNull(myLoc)))
         {
