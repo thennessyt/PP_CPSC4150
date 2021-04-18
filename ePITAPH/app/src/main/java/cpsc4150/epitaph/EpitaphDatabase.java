@@ -8,9 +8,11 @@ import androidx.room.RoomDatabase;
 
 import cpsc4150.epitaph.models.Account;
 import cpsc4150.epitaph.models.Comment;
+import cpsc4150.epitaph.models.ImageContribution;
 import cpsc4150.epitaph.models.Memorial;
+import cpsc4150.epitaph.models.SavedMemorials;
 
-@Database(entities = {Account.class, Memorial.class, Comment.class}, version = 1)
+@Database(entities = {Account.class, Memorial.class, Comment.class, ImageContribution.class, SavedMemorials.class}, version = 1)
 public abstract class EpitaphDatabase extends RoomDatabase
 {
     private static final String DATABASE_NAME = "epitaph.db";
