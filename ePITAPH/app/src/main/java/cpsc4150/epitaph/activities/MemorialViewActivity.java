@@ -6,12 +6,14 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import cpsc4150.epitaph.fragments.MemorialViewFragment;
 import cpsc4150.epitaph.R;
+import cpsc4150.epitaph.models.Account;
 
 public class MemorialViewActivity extends AppCompatActivity
 {
@@ -45,5 +47,15 @@ public class MemorialViewActivity extends AppCompatActivity
         ClipData clip = ClipData.newPlainText("label", String.valueOf(memorialID));
         clipboard.setPrimaryClip(clip);
         Toast.makeText(this, "Memorial ID copied!", Toast.LENGTH_LONG).show();
+    }
+
+    public void addButtonClick(View view)
+    {
+        //Start CreateCommentActivity
+        Intent intent = new Intent(this, VisitMenuActivity.class);
+        intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, memorialID);
+        //TODO: account ID
+//        intent.putExtra(Account.EXTRA_ACCOUNT_ID, );
+        startActivity(intent);
     }
 }

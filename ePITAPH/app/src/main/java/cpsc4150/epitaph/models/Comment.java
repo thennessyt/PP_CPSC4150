@@ -12,8 +12,14 @@ import static androidx.room.ForeignKey.CASCADE;
         @ForeignKey(
                 entity = Account.class,
                 parentColumns = "id",
-                childColumns = "contributionID",
-                onDelete = CASCADE)})
+                childColumns = "account_id",
+                onDelete = CASCADE),
+        @ForeignKey(
+                entity = Memorial.class,
+                parentColumns = "id",
+                childColumns = "memorial_id",
+                onDelete = CASCADE
+        )})
 public class Comment
 {
     @PrimaryKey(autoGenerate = true)
@@ -32,13 +38,16 @@ public class Comment
     @ColumnInfo(name = "account_id")
     public int accountID;
 
-    //compiler demands it
-    public int contributionID;
+    @NonNull
+    @ColumnInfo(name = "memorial_id")
+    public int memorialID;
 
-    public Comment(String text)
+    public Comment(String text, int accountID, int memorialID)
     {
         this.text = text;
         this.likes = 0;
+        this.accountID = accountID;
+        this.memorialID = memorialID;
     }
 
     public void like()

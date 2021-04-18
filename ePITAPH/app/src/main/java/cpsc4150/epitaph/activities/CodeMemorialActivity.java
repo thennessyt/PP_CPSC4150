@@ -15,8 +15,6 @@ import cpsc4150.epitaph.R;
 
 public class CodeMemorialActivity extends AppCompatActivity
 {
-
-
     private EditText memorialCodeView;
 
     @Override

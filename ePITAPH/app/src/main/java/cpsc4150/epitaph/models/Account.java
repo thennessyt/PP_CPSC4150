@@ -9,6 +9,8 @@ import java.util.List;
 @Entity
 public class Account
 {
+    public static final String EXTRA_ACCOUNT_ID = "cpsc4150.epitaph.account_id";
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     protected int id;

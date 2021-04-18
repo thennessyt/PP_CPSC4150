@@ -15,6 +15,7 @@ import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.fragments.CodeMemorialFragment;
 import cpsc4150.epitaph.fragments.CreateCommentFragment;
+import cpsc4150.epitaph.models.Account;
 import cpsc4150.epitaph.models.Comment;
 
 public class CreateCommentActivity extends AppCompatActivity
@@ -44,11 +45,15 @@ public class CreateCommentActivity extends AppCompatActivity
 
         db = EpitaphDatabase.getInstance(getApplicationContext());
         commentEditText = findViewById(R.id.et_comment);
+
+        Bundle extra = getIntent().getExtras();
+        memorialID = extra.getInt(MemorialViewActivity.EXTRA_MEMORIAL_ID);
+        accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
     }
 
     public void onCreateCommentClick(View view)
     {
-        Comment comment = new Comment(commentEditText.getText().toString());
+        Comment comment = new Comment(commentEditText.getText().toString(), accountID, memorialID);
         db.commentDao().insertComment(comment);
         Toast.makeText(this, "Comment created!", Toast.LENGTH_LONG).show();
     }
