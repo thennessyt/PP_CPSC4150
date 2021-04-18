@@ -16,7 +16,6 @@ import cpsc4150.epitaph.R;
 public class CodeMemorialActivity extends AppCompatActivity
 {
 
-    public static final String EXTRA_MEMORIAL_CODE = "cpsc4150.epitaph.memorial_code";
 
     private EditText memorialCodeView;
 
@@ -52,7 +51,7 @@ public class CodeMemorialActivity extends AppCompatActivity
         else
         {
             //Put memorial code into intent
-            intent.putExtra(EXTRA_MEMORIAL_CODE, memorialCodeView.getText());
+            intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, memorialCodeView.getText());
 
             startActivity(intent);
         }

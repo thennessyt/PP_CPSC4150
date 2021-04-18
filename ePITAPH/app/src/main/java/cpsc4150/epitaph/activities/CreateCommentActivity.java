@@ -11,13 +11,11 @@ import android.widget.Toast;
 
 import java.time.LocalDateTime;
 
-import cpsc4150.epitaph.ContributionDao;
 import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.fragments.CodeMemorialFragment;
 import cpsc4150.epitaph.fragments.CreateCommentFragment;
 import cpsc4150.epitaph.models.Comment;
-import cpsc4150.epitaph.models.Contribution;
 
 public class CreateCommentActivity extends AppCompatActivity
 {
