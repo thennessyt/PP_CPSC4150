@@ -15,4 +15,7 @@ public interface AccountDao
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertAccount(Account account);
+
+    @Query("SELECT * FROM Account WHERE email = :e_mail")
+    public Account getAccount(String e_mail);
 }

@@ -24,6 +24,14 @@ public class Account
     private String email;
 
     //google account?
+    public Account(){
+
+    }
+
+    public Account(String n, String e){
+        name = n;
+        email = e;
+    }
 
     public String getName()
     {

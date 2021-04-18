@@ -47,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
+        //initialize db
+        db = EpitaphDatabase.getInstance(getApplicationContext());
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.activity_login);
@@ -101,11 +103,24 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    //this is where they sign in
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            GoogleSignInAccount gaccount = completedTask.getResult(ApiException.class);
 
+            Account currAccount;
             // Signed in successfully, show authenticated UI.
+            //check database for existing account
+            try{
+                currAccount = db.accountDao().getAccount(gaccount.getEmail());
+            } catch (Exception e){
+
+                currAccount = new Account(gaccount.getGivenName() + " " +
+                        gaccount.getFamilyName(), gaccount.getEmail());
+
+                db.accountDao().insertAccount(currAccount);
+
+            }
             //TODO: move to opening menu with account
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
