@@ -22,6 +22,8 @@ import static androidx.room.ForeignKey.CASCADE;
         )})
 public class Comment
 {
+    public static int REPORT_MAX = 3;
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     public int id;
@@ -62,11 +64,6 @@ public class Comment
     public void like()
     {
         this.likes++;
-    }
-
-    public void unlike()
-    {
-        this.likes--;
     }
 
     public void report()

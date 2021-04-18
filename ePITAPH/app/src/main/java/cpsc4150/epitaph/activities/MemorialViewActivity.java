@@ -15,9 +15,10 @@ import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.fragments.MemorialViewFragment;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.models.Account;
+import cpsc4150.epitaph.models.Comment;
 import cpsc4150.epitaph.models.Memorial;
 
-public class MemorialViewActivity extends AppCompatActivity
+public class MemorialViewActivity extends AppCompatActivity implements MemorialViewFragment.OnLikeClickedListener, MemorialViewFragment.OnReportClickedListener
 {
     public static final String EXTRA_MEMORIAL_ID = "cpsc4150.epitaph.memorial_id";
     private int memorialID;
@@ -61,5 +62,23 @@ public class MemorialViewActivity extends AppCompatActivity
         //TODO: account ID
 //        intent.putExtra(Account.EXTRA_ACCOUNT_ID, );
         startActivity(intent);
+    }
+
+    public void onLikeClick(int commentID)
+    {
+        Comment comment = db.commentDao().getComment(commentID);
+        comment.like();
+        Toast.makeText(this, "Liked!", Toast.LENGTH_LONG).show();
+    }
+
+    public void onReportClick(int commentID)
+    {
+        Comment comment = db.commentDao().getComment(commentID);
+        comment.report();
+        Toast.makeText(this, "Reported!", Toast.LENGTH_LONG).show();
+        if(comment.report > Comment.REPORT_MAX)
+        {
+            comment.setVisible(false);
+        }
     }
 }

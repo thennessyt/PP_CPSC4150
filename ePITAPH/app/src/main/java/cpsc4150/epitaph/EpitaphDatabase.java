@@ -18,7 +18,6 @@ public abstract class EpitaphDatabase extends RoomDatabase
     public abstract MemorialDao memorialDao();
     public abstract CommentDao commentDao();
     public abstract ImageContributionDao imageContributionDao();
-    public abstract AudioContributionDao audioContributionDao();
     public abstract AccountDao accountDao();
 
     // Singleton

@@ -33,6 +33,16 @@ public class MemorialViewFragment extends Fragment
     private TextView memorialDescription;
     private EpitaphDatabase db;
 
+    public interface OnLikeClickedListener
+    {
+        void onLikeClick(int commentID);
+    }
+
+    public interface OnReportClickedListener
+    {
+        void onReportClick(int commentID);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {

@@ -19,6 +19,6 @@ public interface CommentDao
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertComment(Comment comment);
 
-    @Query("SELECT * FROM Comment WHERE account_id = :id")
+    @Query("SELECT * FROM Comment WHERE account_id = :id AND visible = 1")
     public List<Comment> getCommentsByMemorialID(int id);
 }
