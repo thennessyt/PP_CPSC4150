@@ -19,7 +19,7 @@ import cpsc4150.epitaph.models.ImageContribution;
 import cpsc4150.epitaph.models.Memorial;
 import cpsc4150.epitaph.models.SavedMemorials;
 
-@Database(entities = {Account.class, Memorial.class, Comment.class, ImageContribution.class, SavedMemorials.class}, version = 1)
+@Database(entities = {Account.class, Memorial.class, Comment.class, ImageContribution.class, SavedMemorials.class}, version = 2)
 public abstract class EpitaphDatabase extends RoomDatabase
 {
     private static final String DATABASE_NAME = "epitaph.db";
