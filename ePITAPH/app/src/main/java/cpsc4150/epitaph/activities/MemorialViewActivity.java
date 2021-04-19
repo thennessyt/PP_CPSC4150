@@ -77,6 +77,7 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
     {
         SavedMemorials savedMemorials = new SavedMemorials(accountID, memorialID);
         db.savedMemorialsDao().insertSavedMemorial(savedMemorials);
+        Toast.makeText(this, "Memorial saved!", Toast.LENGTH_LONG).show();
     }
 
     public void onLikeClick(int commentID)
