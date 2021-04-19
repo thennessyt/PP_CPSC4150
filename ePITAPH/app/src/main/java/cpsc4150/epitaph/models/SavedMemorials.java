@@ -41,4 +41,10 @@ public class SavedMemorials
     @NonNull
     @ColumnInfo(name = "accountID")
     public int accountID;
+
+    public SavedMemorials(int accountID, int memorialID)
+    {
+        this.accountID = accountID;
+        this.memorialID = memorialID;
+    }
 }

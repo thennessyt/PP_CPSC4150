@@ -56,6 +56,7 @@ public class VisitMenuActivity extends AppCompatActivity
     {
         //Start CodeMemorialActivity
         Intent intent = new Intent(this, CodeMemorialActivity.class);
+        intent.putExtra(Account.EXTRA_ACCOUNT_ID, accountID);
         startActivity(intent);
     }
 }

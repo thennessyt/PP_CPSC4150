@@ -24,11 +24,13 @@ import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.models.Account;
 import cpsc4150.epitaph.models.Comment;
 import cpsc4150.epitaph.models.Memorial;
+import cpsc4150.epitaph.models.SavedMemorials;
 
 public class MemorialViewActivity extends AppCompatActivity implements MemorialViewFragment.OnLikeClickedListener, MemorialViewFragment.OnReportClickedListener
 {
     public static final String EXTRA_MEMORIAL_ID = "cpsc4150.epitaph.memorial_id";
     private int memorialID;
+    private int accountID;
     private EpitaphDatabase db;
 
     @Override
@@ -50,6 +52,7 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
 
         Bundle extra = getIntent().getExtras();
         memorialID = extra.getInt(MemorialViewActivity.EXTRA_MEMORIAL_ID);
+        accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
         db = EpitaphDatabase.getInstance(getApplicationContext());
     }
 
@@ -66,9 +69,14 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
         //Start CreateCommentActivity
         Intent intent = new Intent(this, VisitMenuActivity.class);
         intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, memorialID);
-        //TODO: account ID
-//        intent.putExtra(Account.EXTRA_ACCOUNT_ID, );
+        intent.putExtra(Account.EXTRA_ACCOUNT_ID, accountID);
         startActivity(intent);
+    }
+
+    public void onSaveMemorialClick(View view)
+    {
+        SavedMemorials savedMemorials = new SavedMemorials(accountID, memorialID);
+        db.savedMemorialsDao().insertSavedMemorial(savedMemorials);
     }
 
     public void onLikeClick(int commentID)

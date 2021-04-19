@@ -8,6 +8,8 @@
 package cpsc4150.epitaph;
 
 import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.List;
@@ -19,5 +21,8 @@ public interface SavedMemorialsDao
 {
     @Query("SELECT * FROM SavedMemorials WHERE accountID = :id")
     public List<SavedMemorials> getSavedMemorials(int id);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public void insertSavedMemorial(SavedMemorials savedMemorials);
 
 }

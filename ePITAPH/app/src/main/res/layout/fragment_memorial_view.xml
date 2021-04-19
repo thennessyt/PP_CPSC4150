@@ -27,7 +27,20 @@
         android:text="@string/copy_memorial_id"
         android:onClick="onCopyClick"/>
 
-    <ImageView
+    <Button
+        android:id="@+id/saveMemorialButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/buttonStyle"
+        android:fontFamily="@font/avenir"
+        app:layout_constraintTop_toBottomOf="@id/copyMemorialIDButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/save_memorial"
+        android:onClick="onSaveMemorialClick"/>
+
+
+        <ImageView
         android:id="@+id/memorialImage"
         android:layout_width="375dp"
         android:layout_height="375dp"
@@ -93,11 +106,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment_memorial_view_comments">
-    </androidx.recyclerview.widget.RecyclerView>
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/fragment_memorial_view_comments">-->
+<!--    </androidx.recyclerview.widget.RecyclerView>-->
 
 </ScrollView>
 

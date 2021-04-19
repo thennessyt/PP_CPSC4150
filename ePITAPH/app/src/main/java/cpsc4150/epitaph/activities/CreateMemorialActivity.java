@@ -212,6 +212,7 @@ public class CreateMemorialActivity extends AppCompatActivity
         //Start MemorialViewActivity
         Intent intent = new Intent(this, MemorialViewActivity.class);
         intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, myMem.getId());
+        intent.putExtra(Account.EXTRA_ACCOUNT_ID, accountID);
         startActivity(intent);
 
     }

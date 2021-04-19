@@ -19,10 +19,13 @@ import android.widget.Toast;
 
 import cpsc4150.epitaph.fragments.CodeMemorialFragment;
 import cpsc4150.epitaph.R;
+import cpsc4150.epitaph.models.Account;
+import cpsc4150.epitaph.models.Memorial;
 
 public class CodeMemorialActivity extends AppCompatActivity
 {
     private EditText memorialCodeView;
+    private int accountID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,6 +44,9 @@ public class CodeMemorialActivity extends AppCompatActivity
                     .commit();
         }
 
+        Bundle extra = getIntent().getExtras();
+        accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
+
         memorialCodeView = findViewById(R.id.enterMemorialCodeEdit);
     }
 
@@ -57,7 +63,7 @@ public class CodeMemorialActivity extends AppCompatActivity
         {
             //Put memorial code into intent
             intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, memorialCodeView.getText());
-
+            intent.putExtra(Account.EXTRA_ACCOUNT_ID, accountID);
             startActivity(intent);
         }
     }
