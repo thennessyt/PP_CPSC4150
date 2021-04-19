@@ -24,13 +24,19 @@ import java.util.List;
 
 import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
-import cpsc4150.epitaph.activities.MemorialViewActivity;
 import cpsc4150.epitaph.models.Account;
 import cpsc4150.epitaph.models.Memorial;
 import cpsc4150.epitaph.models.SavedMemorials;
 
 public class SavedMemorialsFragment extends Fragment
 {
+    // Reference to the activity
+    private SavedMemorialsFragment.OnMemorialSelectedListener mListener;
+
+    private EpitaphDatabase db;
+    private int accountID;
+
+    //Interface for when a memorial in the recycler view is selected
     public interface OnMemorialSelectedListener
     {
         void onMemorialSelected(int memorialID);
@@ -68,16 +74,15 @@ public class SavedMemorialsFragment extends Fragment
         }
     };
 
-    // Reference to the activity
-    private SavedMemorialsFragment.OnMemorialSelectedListener mListener;
-    private EpitaphDatabase db;
-    private int accountID;
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        //Get DB instance
         db = EpitaphDatabase.getInstance(getActivity().getApplicationContext());
+
+        //Get account ID
         Bundle extra = getActivity().getIntent().getExtras();
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
     }
@@ -89,6 +94,7 @@ public class SavedMemorialsFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_saved_memorials, container, false);
 
+        //Create recycler view
         RecyclerView recyclerView = view.findViewById(R.id.fragment_saved_memorials);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -119,6 +125,7 @@ public class SavedMemorialsFragment extends Fragment
         {
             super(inflater.inflate(R.layout.list_item_memorial, parent, false));
             itemView.setOnClickListener(this);
+            //Initialize views holding memorial information
             memorialItemName = itemView.findViewById(R.id.memorialItemName);
             memorialItemRange = itemView.findViewById(R.id.memorialItemRange);
             memorialItemLocation = itemView.findViewById(R.id.memorialItemLocation);
@@ -126,6 +133,7 @@ public class SavedMemorialsFragment extends Fragment
 
         public void bind(Memorial memorial)
         {
+            //Set memorial and information
             this.memorial = memorial;
             memorialItemName.setText(memorial.getName());
             memorialItemRange.setText(memorial.getByear() + " - " + memorial.getDyear());
