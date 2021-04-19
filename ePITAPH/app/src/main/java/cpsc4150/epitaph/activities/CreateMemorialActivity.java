@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -203,6 +204,8 @@ public class CreateMemorialActivity extends AppCompatActivity
 
         myMem = db.memorialDao().getNewestMemorial();
         myMem.isNotNew();
+
+        Log.e("caterpillar", myMem.toString());
 
         //update
         db.memorialDao().insertMemorial(myMem);

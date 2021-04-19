@@ -196,4 +196,10 @@ public class Memorial
 
     public void isNotNew() { this.isThisNew = false; }
 
+    @Override
+    public String toString() {
+        String tostring = id + ", " + name + ", " + isThisNew.toString();
+        return tostring;
+    }
+
 }
