@@ -82,4 +82,12 @@ public class MemorialViewActivity extends AppCompatActivity
         db.savedMemorialsDao().insertSavedMemorial(savedMemorials);
         Toast.makeText(this, "Memorial saved!", Toast.LENGTH_LONG).show();
     }
+
+    public void gotoCommentsClick(View view)
+    {
+        Intent intent = new Intent(this, CommentViewActivity.class);
+        intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, memorialID);
+        intent.putExtra(Account.EXTRA_ACCOUNT_ID, accountID);
+        startActivity(intent);
+    }
 }
