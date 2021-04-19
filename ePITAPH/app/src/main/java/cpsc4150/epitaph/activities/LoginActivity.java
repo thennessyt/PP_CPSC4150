@@ -19,6 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity
     GoogleSignInClient mGoogleSignInClient;
     //sign in request code
     private static final int RC_SIGN_IN = 9001;
+    final String TOKEN = "1053227532799-gdtgl7g7kjsvcioro1vdnkg05e6g3sh0.apps.googleusercontent.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,14 +48,26 @@ public class LoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(TOKEN)
                 .requestEmail()
+                .requestProfile()
                 .build();
+
+        SignInButton sib_google = findViewById(R.id.sib_google);
+
+        sib_google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSignInClick(findViewById(R.id.sib_google));
+            }
+        });
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         //initialize db
         db = EpitaphDatabase.getInstance(getApplicationContext());
 
+        /*
         FragmentManager fragmentManager = getSupportFragmentManager();
         Fragment fragment = fragmentManager.findFragmentById(R.id.activity_login);
 
@@ -63,7 +77,7 @@ public class LoginActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .add(R.id.activity_login, fragment)
                     .commit();
-        }
+        }*/
 
     }
 
@@ -77,7 +91,7 @@ public class LoginActivity extends AppCompatActivity
         //if it's not null, meaning someone is already signed in
         if(!(Objects.isNull(gaccount))){
             //go to the opening menu
-            System.out.println("Signed in previously! Moving on...");
+            Log.e("caterpillar","Signed in previously! Moving on...");
             //Start Opening Menu Activity
             Account currAccount= db.accountDao().getAccount(gaccount.getEmail());
             Intent intent = new Intent(this, OpeningMenuActivity.class);
@@ -88,7 +102,7 @@ public class LoginActivity extends AppCompatActivity
 
     public void onSignInClick(View v)
     {
-        System.out.println("IN SIGNIN");
+        Log.e("caterpillar","IN SIGNIN");
         signIn();
     }
 
@@ -102,7 +116,7 @@ public class LoginActivity extends AppCompatActivity
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("GOT RESULT");
+        Log.e("caterpillar","GOT RESULT");
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
@@ -117,7 +131,7 @@ public class LoginActivity extends AppCompatActivity
 
     //this is where they sign in
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        System.out.println("TASK COMPLETE");
+        Log.e("caterpillar","TASK COMPLETE");
         try {
             GoogleSignInAccount gaccount = completedTask.getResult(ApiException.class);
 
@@ -126,7 +140,7 @@ public class LoginActivity extends AppCompatActivity
             //check database for existing account
             try{
 
-                System.out.println("IN TRY");
+                Log.e("caterpillar","IN TRY");
                 currAccount = db.accountDao().getAccount(gaccount.getEmail());
                 if (Objects.isNull(currAccount))
                 {
@@ -138,7 +152,7 @@ public class LoginActivity extends AppCompatActivity
 
                 }
             } catch (Exception e){
-                System.out.println("IN CATCH");
+                Log.e("caterpillar","IN CATCH");
 
                 currAccount = new Account(gaccount.getGivenName() + " " +
                         gaccount.getFamilyName(), gaccount.getEmail());
@@ -158,7 +172,7 @@ public class LoginActivity extends AppCompatActivity
         {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            System.out.println("signInResult:failed code=" + e.getStatusCode());
+            Log.e("caterpillar","signInResult:failed code=" + e.getStatusCode());
             //what do we do if sign-in fails
             //TODO:what
         }
