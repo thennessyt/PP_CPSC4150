@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -27,7 +26,7 @@ import java.util.Objects;
 
 import cpsc4150.epitaph.EpitaphDatabase;
 import cpsc4150.epitaph.R;
-import cpsc4150.epitaph.fragments.OpeningMenuFragment;
+import cpsc4150.epitaph.fragments.LoginFragment;
 import cpsc4150.epitaph.models.Account;
 
 //DOCUMENTATION USED: https://developers.google.com/identity/sign-in/android/sign-in?authuser=5
