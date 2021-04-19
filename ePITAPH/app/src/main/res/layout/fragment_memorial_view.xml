@@ -33,7 +33,8 @@
         android:layout_height="375dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/copyMemorialIDButton"/>
+        app:layout_constraintTop_toBottomOf="@id/copyMemorialIDButton"
+        android:src="@drawable/person_icon"/>
 
     <TextView
         android:id="@+id/memorialEpitaph"
@@ -92,11 +93,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <view class="androidx.appcompat.app.AlertController$RecycleListView"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_memorial_view_comments">
-    </view>
+    </androidx.recyclerview.widget.RecyclerView>
 
 </ScrollView>
 
