@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -176,11 +177,6 @@ public class CreateMemorialActivity extends AppCompatActivity
         //cb_mylocation : do I need to get their location?
         CheckBox cb_mylocation = findViewById(R.id.cb_mylocation);
 
-        //et_location : a city........ just one? let's see if we can bring up some special dialogue
-        //instead of using an ET
-        //TODO: edit text of location? is there a location library we can bring up that looks
-        //TODO: up city names? im tired
-
         String n = et_name.getText().toString();
         int by = Integer.parseInt(et_birthyear.getText().toString());
         int dy = Integer.parseInt(et_deathyear.getText().toString());
@@ -204,6 +200,14 @@ public class CreateMemorialActivity extends AppCompatActivity
         Memorial myMem = new Memorial(n, by, dy, e, d, comS, conS, locs);
 
         //Add memorial to database
+        db.memorialDao().insertMemorial(myMem);
+
+        myMem = db.memorialDao().getNewestMemorial();
+        myMem.isNotNew();
+
+        Log.e("caterpillar", myMem.toString());
+
+        //update
         db.memorialDao().insertMemorial(myMem);
 
         Toast.makeText(this, "Memorial created!", Toast.LENGTH_LONG).show();

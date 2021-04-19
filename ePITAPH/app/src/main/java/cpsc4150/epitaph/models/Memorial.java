@@ -181,9 +181,25 @@ public class Memorial
         this.locations = locations;
     }
 
+    public Boolean getThisNew() {
+        return isThisNew;
+    }
+
+    public void setThisNew(Boolean thisNew) {
+        isThisNew = thisNew;
+    }
+
     public void setName(@NonNull String name)
     {
         this.name = name;
+    }
+
+    public void isNotNew() { this.isThisNew = false; }
+
+    @Override
+    public String toString() {
+        String tostring = id + ", " + name + ", " + isThisNew.toString();
+        return tostring;
     }
 
 }
