@@ -221,7 +221,6 @@ public class CreateMemorialActivity extends AppCompatActivity
 
     public void takePhotoClick(View view)
     {
-
         while (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
         {
             String[] permissions = new String[1];

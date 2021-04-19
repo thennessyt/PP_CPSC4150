@@ -8,22 +8,25 @@
     android:layout_height="match_parent"
     android:background="@color/blue_mid">
 
-    <ImageView
-        android:id="@+id/img_logo"
+    <TextView
+        android:id="@+id/epitaph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="90sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/avenir"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_creatememorial"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="ePITAPH"/>
 
     <Button
         android:id="@+id/btn_creatememorial"
         style="@style/buttonStyle"
         android:onClick="onClickCreate"
         android:text="@string/creatememorial"
-        app:layout_constraintTop_toBottomOf="@id/img_logo"
+        app:layout_constraintTop_toBottomOf="@id/epitaph"
         app:layout_constraintBottom_toTopOf="@id/btn_visitmemorial"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

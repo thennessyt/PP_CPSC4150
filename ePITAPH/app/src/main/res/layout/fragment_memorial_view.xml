@@ -39,8 +39,7 @@
         android:text="@string/save_memorial"
         android:onClick="onSaveMemorialClick"/>
 
-
-        <ImageView
+    <ImageView
         android:id="@+id/memorialImage"
         android:layout_width="375dp"
         android:layout_height="375dp"

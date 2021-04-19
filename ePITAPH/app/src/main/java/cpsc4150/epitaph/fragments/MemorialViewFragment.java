@@ -89,13 +89,13 @@ public class MemorialViewFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_memorial_view, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.fragment_memorial_view_comments);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        // Send comments to recycler view
-        List<Comment> list = db.commentDao().getCommentsByMemorialID(memorialID);
-        MemorialViewFragment.CommentAdapter adapter = new MemorialViewFragment.CommentAdapter(list);
-        recyclerView.setAdapter(adapter);
+//        RecyclerView recyclerView = view.findViewById(R.id.fragment_memorial_view_comments);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//
+//        // Send comments to recycler view
+//        List<Comment> list = db.commentDao().getCommentsByMemorialID(memorialID);
+//        MemorialViewFragment.CommentAdapter adapter = new MemorialViewFragment.CommentAdapter(list);
+//        recyclerView.setAdapter(adapter);
 
         return view;
     }
