@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity
     GoogleSignInClient mGoogleSignInClient;
     //sign in request code
     private static final int RC_SIGN_IN = 9001;
-    final String TOKEN = "1053227532799-gdtgl7g7kjsvcioro1vdnkg05e6g3sh0.apps.googleusercontent.com";
+    final String TOKEN = "1053227532799-egp9hlnnn83eobojh90e5ggnpejab9ok.apps.googleusercontent.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
