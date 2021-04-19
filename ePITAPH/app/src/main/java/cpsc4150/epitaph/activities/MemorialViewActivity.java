@@ -25,7 +25,7 @@ import cpsc4150.epitaph.models.Account;
 import cpsc4150.epitaph.models.Comment;
 import cpsc4150.epitaph.models.SavedMemorials;
 
-public class MemorialViewActivity extends AppCompatActivity implements MemorialViewFragment.OnLikeClickedListener, MemorialViewFragment.OnReportClickedListener
+public class MemorialViewActivity extends AppCompatActivity
 {
     public static final String EXTRA_MEMORIAL_ID = "cpsc4150.epitaph.memorial_id";
     private int memorialID;
@@ -81,25 +81,5 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
         SavedMemorials savedMemorials = new SavedMemorials(accountID, memorialID);
         db.savedMemorialsDao().insertSavedMemorial(savedMemorials);
         Toast.makeText(this, "Memorial saved!", Toast.LENGTH_LONG).show();
-    }
-
-    //Like a comment
-    public void onLikeClick(int commentID)
-    {
-        Comment comment = db.commentDao().getComment(commentID);
-        comment.like();
-        Toast.makeText(this, "Liked!", Toast.LENGTH_LONG).show();
-    }
-
-    //Report a comment
-    public void onReportClick(int commentID)
-    {
-        Comment comment = db.commentDao().getComment(commentID);
-        comment.report();
-        Toast.makeText(this, "Reported!", Toast.LENGTH_LONG).show();
-        if(comment.report > Comment.REPORT_MAX)
-        {
-            comment.setVisible(false);
-        }
     }
 }

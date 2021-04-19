@@ -41,15 +41,6 @@ public class MemorialViewFragment extends Fragment
     private TextView memorialDescription;
     private EpitaphDatabase db;
 
-    public interface OnLikeClickedListener
-    {
-        void onLikeClick(int commentID);
-    }
-
-    public interface OnReportClickedListener
-    {
-        void onReportClick(int commentID);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -89,75 +80,7 @@ public class MemorialViewFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_memorial_view, container, false);
 
-//        RecyclerView recyclerView = view.findViewById(R.id.fragment_memorial_view_comments);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//
-//        // Send comments to recycler view
-//        List<Comment> list = db.commentDao().getCommentsByMemorialID(memorialID);
-//        MemorialViewFragment.CommentAdapter adapter = new MemorialViewFragment.CommentAdapter(list);
-//        recyclerView.setAdapter(adapter);
-
         return view;
     }
 
-    private class CommentHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener
-    {
-        private Comment comment;
-
-        private TextView commentAccount;
-        private TextView commentText;
-
-        public CommentHolder(LayoutInflater inflater, ViewGroup parent)
-        {
-            super(inflater.inflate(R.layout.list_item_comment, parent, false));
-            itemView.setOnClickListener(this);
-            commentAccount = itemView.findViewById(R.id.commentAccount);
-            commentText = itemView.findViewById(R.id.commentText);
-        }
-
-        public void bind(Comment comment)
-        {
-            Account account = db.accountDao().getAccount(comment.accountID);
-            this.comment = comment;
-            commentAccount.setText(account.getName());
-            commentText.setText(comment.text);
-        }
-
-        @Override
-        public void onClick(View view)
-        {
-
-        }
-    }
-
-    private class CommentAdapter extends RecyclerView.Adapter<MemorialViewFragment.CommentHolder>
-    {
-        private List<Comment> comments;
-
-        public CommentAdapter(List<Comment> comments)
-        {
-            this.comments = comments;
-        }
-
-        @Override
-        public MemorialViewFragment.CommentHolder onCreateViewHolder(ViewGroup parent, int viewType)
-        {
-            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            return new MemorialViewFragment.CommentHolder(layoutInflater, parent);
-        }
-
-        @Override
-        public void onBindViewHolder(MemorialViewFragment.CommentHolder holder, int position)
-        {
-            Comment comment = comments.get(position);
-            holder.bind(comment);
-        }
-
-        @Override
-        public int getItemCount()
-        {
-            return comments.size();
-        }
-    }
 }
