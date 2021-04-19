@@ -27,6 +27,6 @@ public interface MemorialDao
     @Delete
     public void deleteMemorial(Memorial memorial);
 
-    @Query("SELECT * FROM Memorial WHERE isThisNew = 1")
+    @Query("SELECT * FROM Memorial WHERE is_this_new = 1")
     public Memorial getNewestMemorial();
 }
