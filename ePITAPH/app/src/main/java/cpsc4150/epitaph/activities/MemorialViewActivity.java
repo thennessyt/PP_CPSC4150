@@ -23,7 +23,6 @@ import cpsc4150.epitaph.fragments.MemorialViewFragment;
 import cpsc4150.epitaph.R;
 import cpsc4150.epitaph.models.Account;
 import cpsc4150.epitaph.models.Comment;
-import cpsc4150.epitaph.models.Memorial;
 import cpsc4150.epitaph.models.SavedMemorials;
 
 public class MemorialViewActivity extends AppCompatActivity implements MemorialViewFragment.OnLikeClickedListener, MemorialViewFragment.OnReportClickedListener
@@ -50,12 +49,14 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
                     .commit();
         }
 
+        //Get memorial and account ID, get DB instance
         Bundle extra = getIntent().getExtras();
         memorialID = extra.getInt(MemorialViewActivity.EXTRA_MEMORIAL_ID);
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
         db = EpitaphDatabase.getInstance(getApplicationContext());
     }
 
+    //Copy memorial ID to clipboard
     public void onCopyClick(View view)
     {
         ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
@@ -64,6 +65,7 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
         Toast.makeText(this, "Memorial ID copied!", Toast.LENGTH_LONG).show();
     }
 
+    //Create a comment
     public void addButtonClick(View view)
     {
         //Start CreateCommentActivity
@@ -73,6 +75,7 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
         startActivity(intent);
     }
 
+    //Save memorial to profile's saved memorials
     public void onSaveMemorialClick(View view)
     {
         SavedMemorials savedMemorials = new SavedMemorials(accountID, memorialID);
@@ -80,6 +83,7 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
         Toast.makeText(this, "Memorial saved!", Toast.LENGTH_LONG).show();
     }
 
+    //Like a comment
     public void onLikeClick(int commentID)
     {
         Comment comment = db.commentDao().getComment(commentID);
@@ -87,6 +91,7 @@ public class MemorialViewActivity extends AppCompatActivity implements MemorialV
         Toast.makeText(this, "Liked!", Toast.LENGTH_LONG).show();
     }
 
+    //Report a comment
     public void onReportClick(int commentID)
     {
         Comment comment = db.commentDao().getComment(commentID);

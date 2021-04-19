@@ -7,7 +7,9 @@
 
 package cpsc4150.epitaph.fragments;
 
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cpsc4150.epitaph.EpitaphDatabase;
@@ -67,8 +68,9 @@ public class MemorialViewFragment extends Fragment
         db = EpitaphDatabase.getInstance(getActivity().getApplicationContext());
         Memorial memorial = db.memorialDao().getMemorial(memorialID);
 
-        //TODO: SET IMAGE DRAWABLE
-//        memorialImage.setImageDrawable();
+        Bitmap image = db.imageContributionDao().getImageByMemorialID(memorialID).getImage();
+        Drawable drawable = new BitmapDrawable(getActivity().getResources(), image);
+        memorialImage.setImageDrawable(drawable);
         //Set epitaph
         memorialEpitaph.setText(memorial.getEpitaph());
         //Set name of deceased

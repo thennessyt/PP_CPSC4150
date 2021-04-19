@@ -21,7 +21,6 @@ import cpsc4150.epitaph.models.Account;
 
 public class OpeningMenuActivity extends AppCompatActivity
 {
-
     private int accountID;
 
     @Override
@@ -41,12 +40,12 @@ public class OpeningMenuActivity extends AppCompatActivity
                     .commit();
         }
 
+        //Get account ID
         Bundle extra = getIntent().getExtras();
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
     }
 
-    // ------------ BUTTON ON-CLICK
-    //create a new memorial
+    //Create a new memorial
     public void onClickCreate(View view)
     {
         //Start CreateMemorialActivity
@@ -56,7 +55,7 @@ public class OpeningMenuActivity extends AppCompatActivity
     }
 
 
-    //visit memorial menu
+    //Visit memorials menu
     public void onClickVisit(View view)
     {
         //Start VisitMenuActivity

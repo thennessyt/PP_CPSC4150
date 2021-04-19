@@ -44,12 +44,14 @@ public class CodeMemorialActivity extends AppCompatActivity
                     .commit();
         }
 
+        //Get account ID
         Bundle extra = getIntent().getExtras();
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
 
         memorialCodeView = findViewById(R.id.enterMemorialCodeEdit);
     }
 
+    //Goes to the memorial of the ID entered
     public void onGotoClick(View view)
     {
         //Create intent to start MemorialViewActivity

@@ -22,4 +22,7 @@ public interface ImageContributionDao
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertImage(ImageContribution contribution);
+
+    @Query("SELECT * FROM ImageContribution WHERE memorial_id = :id")
+    public ImageContribution getImageByMemorialID(int id);
 }

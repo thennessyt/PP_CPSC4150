@@ -40,10 +40,12 @@ public class VisitMenuActivity extends AppCompatActivity
                     .commit();
         }
 
+        //Get account ID
         Bundle extra = getIntent().getExtras();
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
     }
 
+    //Go to saved memorials list
     public void onSavedClick(View view)
     {
         //Start SavedMemorialsActivity
@@ -52,6 +54,7 @@ public class VisitMenuActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    //Go to enter code activity
     public void onEnterClick(View view)
     {
         //Start CodeMemorialActivity

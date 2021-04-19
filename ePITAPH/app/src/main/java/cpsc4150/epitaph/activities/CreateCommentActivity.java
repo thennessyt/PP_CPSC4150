@@ -31,7 +31,6 @@ public class CreateCommentActivity extends AppCompatActivity
     private EpitaphDatabase db;
     private int memorialID;
     private int accountID;
-    private String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,13 +50,16 @@ public class CreateCommentActivity extends AppCompatActivity
         }
 
         db = EpitaphDatabase.getInstance(getApplicationContext());
+
         commentEditText = findViewById(R.id.et_comment);
 
+        //Get memorial and account IDs
         Bundle extra = getIntent().getExtras();
         memorialID = extra.getInt(MemorialViewActivity.EXTRA_MEMORIAL_ID);
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
     }
 
+    //Create comment when create button is clicked
     public void onCreateCommentClick(View view)
     {
         Comment comment = new Comment(commentEditText.getText().toString(), accountID, memorialID);

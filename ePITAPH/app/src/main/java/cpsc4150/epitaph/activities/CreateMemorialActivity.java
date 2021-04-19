@@ -75,11 +75,13 @@ public class CreateMemorialActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_memorial);
 
-        //location thing
+        //Initialized fused location provider
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         //Initialize database
         db = EpitaphDatabase.getInstance(getApplicationContext());
+
+        //Get account ID
         Bundle extra = getIntent().getExtras();
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
 
@@ -95,10 +97,10 @@ public class CreateMemorialActivity extends AppCompatActivity
         }
     }
 
-    //if they want from their location, get the location
+    //If user selects from their location, get the location
     public void onClickMyLocation(View view)
     {
-        //make the submit button unclickable
+        //Make the submit button unclickable
         Button submit = findViewById(R.id.btn_creatememorial);
         submit.setClickable(false);
         submit.setText("Please wait...");
@@ -125,8 +127,10 @@ public class CreateMemorialActivity extends AppCompatActivity
                 .addOnSuccessListener(this, new OnSuccessListener<Location>()
                 {
                     @Override
-                    public void onSuccess(Location location) {
-                        if (location != null) {
+                    public void onSuccess(Location location)
+                    {
+                        if (location != null)
+                        {
                             System.out.println("LOCATION RECEIVED");
                             myLoc = mylocTask.getResult();
                             // write code here to to make the API call to the weather service and update the UI
@@ -135,17 +139,19 @@ public class CreateMemorialActivity extends AppCompatActivity
                             Button submit = findViewById(R.id.btn_creatememorial);
                             submit.setClickable(true);
                             submit.setText("CREATE MEMORIAL");
-                        } else {
+                        }
+                        else
+                        {
                             System.out.println("LOCATION FAILED");
                         }
                     }
                 });
     }
 
-    //create the memorial
+    //Create the memorial when memorial create button clicked
     public void onClickCreateMemorial(View view)
     {
-        //here is a list of the objects to get things from
+        //List of the objects to get views from
         //et_name : name of loved one
         EditText et_name = findViewById(R.id.et_name);
         //et_birthyear : birth year, 4 digits
@@ -258,6 +264,7 @@ public class CreateMemorialActivity extends AppCompatActivity
 
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK)
         {
+            //Initialize bitmap to image taken
             String filePath = mPhotoFile.getPath();
             bitmap = BitmapFactory.decodeFile(filePath);
         }

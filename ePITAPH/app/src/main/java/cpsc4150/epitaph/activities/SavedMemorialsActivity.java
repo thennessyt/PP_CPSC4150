@@ -18,7 +18,6 @@ import cpsc4150.epitaph.models.Account;
 
 public class SavedMemorialsActivity extends AppCompatActivity implements SavedMemorialsFragment.OnMemorialSelectedListener
 {
-
     private int accountID;
 
     @Override
@@ -27,6 +26,7 @@ public class SavedMemorialsActivity extends AppCompatActivity implements SavedMe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_memorials);
 
+        //Get account ID
         Bundle extra = getIntent().getExtras();
         accountID = extra.getInt(Account.EXTRA_ACCOUNT_ID);
     }
@@ -34,7 +34,7 @@ public class SavedMemorialsActivity extends AppCompatActivity implements SavedMe
     @Override
     public void onMemorialSelected(int memorialID)
     {
-        // Send the band ID of the clicked button to DetailsActivity
+        // Send the memorial ID of the clicked button to DetailsActivity
         Intent intent = new Intent(this, MemorialViewActivity.class);
         intent.putExtra(MemorialViewActivity.EXTRA_MEMORIAL_ID, memorialID);
         intent.putExtra(Account.EXTRA_ACCOUNT_ID, accountID);
