@@ -33,6 +33,10 @@ public class Memorial
     @ColumnInfo(name = "id")
     protected int id;
 
+
+    @ColumnInfo(name = "is_this_new")
+    public Boolean isThisNew = true;
+
     @NonNull
     @ColumnInfo(name = "name")
     private String name;

@@ -106,11 +106,8 @@ public class CreateMemorialActivity extends AppCompatActivity
         submit.setText("Please wait...");
         //if we don't have location permission ................. that sucks
         //TODO: what do we do if they say no? also listen to the todo inside that function \v
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        while (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-
             String[] permissions = new String[1];
             permissions[0] = Manifest.permission.ACCESS_COARSE_LOCATION;
             ActivityCompat.requestPermissions(this, permissions, 0);
@@ -204,12 +201,11 @@ public class CreateMemorialActivity extends AppCompatActivity
         //MEMORIAL CONSTRUCTOR:
         //Memorial(String n, int by, int dy, String e, String d, String comS, String conS,
         //Vector< Location > locs)
-        //TODO: maybe location CAN be empty? it won't be searchable but thats okay
         Memorial myMem = new Memorial(n, by, dy, e, d, comS, conS, locs);
-        //todo: make memorial object, next page after making memorial (confirmation that gives code)
 
         //Add memorial to database
         db.memorialDao().insertMemorial(myMem);
+
         Toast.makeText(this, "Memorial created!", Toast.LENGTH_LONG).show();
 
         ImageContribution imageContribution = new ImageContribution(bitmap, accountID, myMem.getId());
@@ -225,6 +221,15 @@ public class CreateMemorialActivity extends AppCompatActivity
 
     public void takePhotoClick(View view)
     {
+
+        while (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+        {
+            String[] permissions = new String[1];
+            permissions[0] = Manifest.permission.CAMERA;
+            ActivityCompat.requestPermissions(this, permissions, 0);
+            System.out.println("Requesting Camera permissions...");
+        }
+
         // Create implicit intent
         Intent photoCaptureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (photoCaptureIntent.resolveActivity(getPackageManager()) != null)
